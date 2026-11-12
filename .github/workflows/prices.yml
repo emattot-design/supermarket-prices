@@ -1,0 +1,44 @@
+name: Update prices
+
+on:
+  schedule:
+    - cron: "30 3 * * *"   # every day, early morning in Israel
+  workflow_dispatch:
+    inputs:
+      only_scrapers:
+        description: "Test run: comma-separated chain names (empty = all chains)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prices
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install il-supermarket-scraper
+      - name: Download and process prices
+        env:
+          FIREBASE_PROJECT_ID: supermarket-list-8cd93
+          FIREBASE_API_KEY: AIzaSyCZExR7bQA6CV0nqrcOb1FLUxxr41cHBbM   # public web key
+          ONLY_SCRAPERS: ${{ inputs.only_scrapers }}
+        run: python scripts/build.py
+      - name: Publish to the data branch
+        run: |
+          cd data
+          git init -q -b data
+          git config user.name "prices-bot"
+          git config user.email "prices-bot@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Prices $(date -u +%Y-%m-%d)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" data
