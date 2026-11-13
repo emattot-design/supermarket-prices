@@ -3,6 +3,8 @@ name: Update prices
 on:
   schedule:
     - cron: "30 7 * * *"   # every day, mid-morning in Israel (some chains publish only around 08:00)
+  push:
+    branches: [local]      # the computer in Israel published fresh prices for the chains GitHub cannot reach
   workflow_dispatch:
     inputs:
       only_scrapers:
@@ -23,6 +25,8 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main          # a push to "local" only triggers the run; the code always comes from main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"

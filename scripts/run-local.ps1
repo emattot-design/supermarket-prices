@@ -4,7 +4,6 @@
 $root = Split-Path -Parent $PSScriptRoot
 $py   = Join-Path $env:LOCALAPPDATA 'Programs\Python\Python312\python.exe'
 $git  = 'C:\Program Files\Git\cmd\git.exe'
-$gh   = 'C:\Program Files\GitHub CLI\gh.exe'
 $repo = 'emattot-design/supermarket-prices'
 $work = Join-Path $env:TEMP 'supermarket-prices-local'
 $log  = Join-Path $work 'last-run.log'
@@ -32,5 +31,5 @@ if (Test-Path .git) { Remove-Item -Recurse -Force .git }
 & $git commit -q -m "Local prices $(Get-Date -Format yyyy-MM-dd)"
 & $git push -q -f "https://github.com/$repo.git" local
 if ($LASTEXITCODE -ne 0) { Add-Content $log 'push failed'; exit 1 }
-& $gh workflow run prices.yml -R $repo
+# The push to "local" itself makes GitHub rebuild the combined data (see .github/workflows/prices.yml).
 Add-Content $log "published $(Get-Date -Format s)"
