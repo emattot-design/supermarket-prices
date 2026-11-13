@@ -18,6 +18,7 @@ Chains that block connections from outside Israel are downloaded by a computer i
 """
 import datetime
 import gzip
+import html
 import json
 import os
 import re
@@ -86,7 +87,8 @@ LEAF = re.compile(r"<([\w:.\-]+)(?:\s[^>]*)?>([^<]*)</\1\s*>")
 
 
 def fields(block):
-    return {m.group(1).split(":")[-1].lower(): m.group(2).strip() for m in LEAF.finditer(block)}
+    # Values are XML text, so entities such as &quot; and &amp; have to be decoded.
+    return {m.group(1).split(":")[-1].lower(): html.unescape(m.group(2)).strip() for m in LEAF.finditer(block)}
 
 
 def blocks(text, tag):
