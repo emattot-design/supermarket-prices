@@ -149,6 +149,29 @@ def chosen_cities():
     return DEFAULT_CITIES
 
 
+# Display names for chains whose files carry only a number or nothing as the chain name.
+CHAIN_NAMES = {
+    "RAMI_LEVY": "רמי לוי", "OSHER_AD": "אושר עד", "YOHANANOF": "יוחננוף", "VICTORY": "ויקטורי",
+    "VICTORY_NEW_SOURCE": "ויקטורי", "YAYNO_BITAN_AND_CARREFOUR": "קרפור / יינות ביתן", "HAZI_HINAM": "חצי חינם",
+    "TIV_TAAM": "טיב טעם", "MAHSANI_ASHUK": "מחסני השוק", "MAHSANI_ASHUK_NEW_SOURCE": "מחסני השוק",
+    "BAREKET": "ברקת", "NETIV_HASED": "נתיב החסד", "ZOL_VEBEGADOL": "זול ובגדול", "KESHET": "קשת טעמים",
+    "STOP_MARKET": "סטופ מרקט", "SALACH_DABACH": "סאלח דבאח", "FRESH_MARKET_AND_SUPER_DOSH": "פרש מרקט",
+    "SUPER_YUDA": "סופר יודה", "SUPER_PHARM": "סופר-פארם", "GOOD_PHARM": "גוד פארם", "DOR_ALON": "דור אלון",
+    "KING_STORE": "קינג סטור", "MAAYAN_2000": "מעיין 2000", "POLIZER": "פוליצר", "SHUK_AHIR": "שוק העיר",
+    "SHEFA_BARCART_ASHEM": "שפע ברכת השם", "HET_COHEN": "ח. כהן", "SUPER_SAPIR": "סופר ספיר", "QUIK": "קוויק",
+    "MESHMAT_YOSEF_1": "משנת יוסף", "MESHMAT_YOSEF_2": "משנת יוסף", "SHUFERSAL": "שופרסל",
+}
+
+
+def chain_label(scraper, chain_name, sub_name):
+    """Prefer the sub-chain (שופרסל דיל), then the chain's own name, as long as it is a real name."""
+    for candidate in (sub_name, chain_name):
+        candidate = (candidate or "").strip()
+        if len(candidate) >= 2 and re.search(r"[A-Za-zא-ת]", candidate):
+            return candidate
+    return CHAIN_NAMES.get(scraper, scraper)
+
+
 # ---------- step 1: every chain's store list ----------
 def load_stores(scrapers):
     stores = {}  # "chainid-storeid" -> info
@@ -173,7 +196,7 @@ def load_stores(scrapers):
                 key = f"{chain_id}-{int(sid)}"
                 stores[key] = {
                     "id": key, "scraper": name, "chain_id": chain_id, "store_id": int(sid),
-                    "chain": (sub_name or chain_name or name).strip(),
+                    "chain": chain_label(name, chain_name, sub_name),
                     "name": f.get("storename", "").strip(),
                     "address": f.get("address", "").strip(),
                     "city": city_name(f.get("city", "")),

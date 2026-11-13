@@ -2,7 +2,7 @@ name: Update prices
 
 on:
   schedule:
-    - cron: "30 3 * * *"   # every day, early morning in Israel
+    - cron: "30 7 * * *"   # every day, mid-morning in Israel (some chains publish only around 08:00)
   workflow_dispatch:
     inputs:
       only_scrapers:
