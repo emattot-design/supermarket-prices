@@ -18,6 +18,8 @@ $env:FIREBASE_API_KEY = 'AIzaSyCZExR7bQA6CV0nqrcOb1FLUxxr41cHBbM'   # public web
 $env:OUT_DIR = Join-Path $work 'out'
 $env:DUMPS_DIR = Join-Path $work 'dumps'
 $env:PYTHONIOENCODING = 'utf-8'
+# Task Scheduler starts in C:\Windows\System32, where the scraper package cannot write its log file.
+Set-Location $work
 cmd /c "`"$py`" `"$root\scripts\build.py`" > `"$log`" 2>&1"
 if ($LASTEXITCODE -ne 0) { Add-Content $log "build failed with exit code $LASTEXITCODE"; exit 1 }
 
