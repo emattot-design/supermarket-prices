@@ -31,8 +31,8 @@ from pathlib import Path
 from il_supermarket_scarper import ScarpingTask, ScraperFactory
 
 HERE = Path(__file__).resolve().parent
-OUT = Path(os.getenv("OUT_DIR", "data"))
-DUMPS = Path(os.getenv("DUMPS_DIR", "dumps"))
+OUT = Path(os.getenv("OUT_DIR", "data")).resolve()
+DUMPS = Path(os.getenv("DUMPS_DIR", "dumps")).resolve()
 DEFAULT_CITIES = ["פתח תקווה", "אלעד", "שוהם", "ראש העין"]
 FIREBASE_PROJECT = os.getenv("FIREBASE_PROJECT_ID", "")
 FIREBASE_KEY = os.getenv("FIREBASE_API_KEY", "")
@@ -421,6 +421,10 @@ def read_partial():
 
 
 def main():
+    # The scraper package writes helper files (cookies, logs) into the current directory;
+    # give it a directory that certainly exists and is writable, wherever this was started from.
+    DUMPS.parent.mkdir(parents=True, exist_ok=True)
+    os.chdir(DUMPS.parent)
     cities = chosen_cities()
     wanted = {city_key(c): CANON.get(city_key(c), c) for c in cities}
     log("cities:", ", ".join(wanted.values()))
