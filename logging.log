@@ -1,0 +1,1076 @@
+Logger       2026-11-13 10:09:29,702 INFO     [MainThread] logger.py:info Enabled scrapers: ['YAYNO_BITAN_AND_CARREFOUR']
+Logger       2026-11-13 10:09:29,711 INFO     [Thread-1 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:09:29,711 INFO     [Thread-1 (_run)] logger.py:info files_types is ['STORE_FILE']
+Logger       2026-11-13 10:09:29,711 INFO     [Thread-1 (_run)] logger.py:info file_name_regex is None
+Logger       2026-11-13 10:09:29,711 INFO     [Thread-1 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:09:29,711 INFO     [Thread-1 (_run)] logger.py:info Start scraping ['YAYNO_BITAN_AND_CARREFOUR'].
+Logger       2026-11-13 10:09:33,658 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.bitan.YaynotBitanAndCarrefour'>
+Logger       2026-11-13 10:09:33,658 INFO     [MainThread] logger.py:info Initialized YaynotBitanAndCarrefour scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\YaynotBitanAndCarrefourstatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x0000020487F70CB0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x0000020487B9BFE0>
+Logger       2026-11-13 10:09:33,658 INFO     [MainThread] logger.py:info scraping DumpFolderNames.YAYNO_BITAN_AND_CARREFOUR
+Logger       2026-11-13 10:09:33,658 INFO     [MainThread] logger.py:info [DumpFolderNames.YAYNO_BITAN_AND_CARREFOUR] Starting run #1
+Logger       2026-11-13 10:09:38,742 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:09:38,742 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://prices.carrefour.co.il/, body=None
+Logger       2026-11-13 10:09:39,312 ERROR    [MainThread] logger.py:error Error listing files from URL: [Errno 2] No such file or directory: 'YAYNO_BITAN_AND_CARREFOUR_1e60f95a-5732-42dc-9121-80a2041b16d6_cookies.txt'
+Logger       2026-11-13 10:09:39,312 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\core\async_work.py", line 149, in stream_as_completed
+    result = task.result()
+             ^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\web.py", line 122, in _fetch_files_from_request
+    req_res = await self.session_with_cookies_by_chain(**request_info)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 538, in session_with_cookies_by_chain
+    return await run_in_daemon_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\core\async_work.py", line 56, in run_in_daemon_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\core\async_work.py", line 45, in worker
+    func(*args, cancel_event=cancel_event, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 116, in outer_wrapper
+    return retry_decorated_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\decorator\__init__.py", line 247, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\core\retry.py", line 155, in retry_decorator
+    return __retry_internal(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\core\retry.py", line 74, in __retry_internal
+    return func(timeout=_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 140, in retry_decorated_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 366, in session_with_cookies
+    with open(chain_cookie_name, "wb") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'YAYNO_BITAN_AND_CARREFOUR_1e60f95a-5732-42dc-9121-80a2041b16d6_cookies.txt'
+Logger       2026-11-13 10:09:39,319 WARNING  [MainThread] logger.py:warning No files to download for file files_types=['STORE_FILE'],limit=None,store_id=None,when_date=None
+Logger       2026-11-13 10:09:39,319 WARNING  [MainThread] logger.py:warning No files to download for file files_types=['STORE_FILE'],limit=None,store_id=None,when_date=None
+Logger       2026-11-13 10:09:39,319 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\YaynotBitanAndCarrefour
+Logger       2026-11-13 10:09:39,319 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\YaynotBitanAndCarrefour: Num of Files= 0,Size= 0 MB
+Logger       2026-11-13 10:09:39,336 INFO     [MainThread] logger.py:info [DumpFolderNames.YAYNO_BITAN_AND_CARREFOUR] Run #1 completed. Files found: 0, Total files: 0
+Logger       2026-11-13 10:09:39,336 INFO     [MainThread] logger.py:info [DumpFolderNames.YAYNO_BITAN_AND_CARREFOUR] Exiting loop: single pass completed
+Logger       2026-11-13 10:09:39,336 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.YAYNO_BITAN_AND_CARREFOUR
+Logger       2026-11-13 10:09:39,470 INFO     [MainThread] logger.py:info Enabled scrapers: ['HAZI_HINAM']
+Logger       2026-11-13 10:09:39,470 INFO     [Thread-5 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:09:39,470 INFO     [Thread-5 (_run)] logger.py:info files_types is ['STORE_FILE']
+Logger       2026-11-13 10:09:39,478 INFO     [Thread-5 (_run)] logger.py:info file_name_regex is None
+Logger       2026-11-13 10:09:39,478 INFO     [Thread-5 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:09:39,478 INFO     [Thread-5 (_run)] logger.py:info Start scraping ['HAZI_HINAM'].
+Logger       2026-11-13 10:09:43,117 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.hazihinam.HaziHinam'>
+Logger       2026-11-13 10:09:43,117 INFO     [MainThread] logger.py:info Initialized HaziHinam scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinamstatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x000001E5CD993FE0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x000001E5C9800860>
+Logger       2026-11-13 10:09:43,117 INFO     [MainThread] logger.py:info scraping DumpFolderNames.HAZI_HINAM
+Logger       2026-11-13 10:09:43,117 INFO     [MainThread] logger.py:info [DumpFolderNames.HAZI_HINAM] Starting run #1
+Logger       2026-11-13 10:09:43,316 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:09:43,316 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=3&f=null, body=None
+Logger       2026-11-13 10:09:43,316 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:09:43,316 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=3&f=null, body=None
+Logger       2026-11-13 10:09:44,056 INFO     [MainThread] logger.py:info Found 1 pages
+Logger       2026-11-13 10:09:44,058 INFO     [MainThread] logger.py:info Found 1 pages
+Logger       2026-11-13 10:09:44,096 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=3&f=null&p=1, body=None
+Logger       2026-11-13 10:09:44,096 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=3&f=null&p=1, body=None
+Logger       2026-11-13 10:09:44,958 INFO     [MainThread] logger.py:info Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=3&f=null&p=1', 'method': 'GET'}: Found 1 files
+Logger       2026-11-13 10:09:44,958 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=3&f=null&p=1', 'method': 'GET'}: Found 1 files initially
+Logger       2026-11-13 10:09:44,969 INFO     [MainThread] logger.py:info Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=3&f=null&p=1', 'method': 'GET'}: Found 1 files
+Logger       2026-11-13 10:09:44,969 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=3&f=null&p=1', 'method': 'GET'}: Found 1 files initially
+Logger       2026-11-13 10:09:44,998 DEBUG    [MainThread] logger.py:debug Processing https://hazihinamprod01.blob.core.windows.net/regulatories/StoresFull7290700100008-000-20261112-005415.gz (in-memory)
+Logger       2026-11-13 10:09:45,049 DEBUG    [MainThread] logger.py:debug Processing https://hazihinamprod01.blob.core.windows.net/regulatories/StoresFull7290700100008-000-20261113-003406.gz (in-memory)
+Logger       2026-11-13 10:09:45,982 DEBUG    [MainThread] logger.py:debug File size is 791 bytes.
+Logger       2026-11-13 10:09:45,984 DEBUG    [MainThread] logger.py:debug File size is 791 bytes.
+Logger       2026-11-13 10:09:45,990 DEBUG    [MainThread] logger.py:debug Saved https://hazihinamprod01.blob.core.windows.net/regulatories/StoresFull7290700100008-000-20261113-003406.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam\StoresFull7290700100008-000-20261113-003406.gz.xml sha256=fb0e511d79607ae28c63b8a7e21bb8e73cb54351b0516d0316f041a4316916ff
+Logger       2026-11-13 10:09:46,011 DEBUG    [MainThread] logger.py:debug Saved https://hazihinamprod01.blob.core.windows.net/regulatories/StoresFull7290700100008-000-20261112-005415.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam\StoresFull7290700100008-000-20261112-005415.gz.xml sha256=fb0e511d79607ae28c63b8a7e21bb8e73cb54351b0516d0316f041a4316916ff
+Logger       2026-11-13 10:09:46,067 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam
+Logger       2026-11-13 10:09:46,067 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam\StoresFull7290700100008-000-20261112-005415.gz.xml: size 6180
+Logger       2026-11-13 10:09:46,067 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam\StoresFull7290700100008-000-20261113-003406.gz.xml: size 12360
+Logger       2026-11-13 10:09:46,067 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam: Num of Files= 2,Size= 12360 MB
+Logger       2026-11-13 10:09:46,080 INFO     [MainThread] logger.py:info [DumpFolderNames.HAZI_HINAM] Run #1 completed. Files found: 2, Total files: 2
+Logger       2026-11-13 10:09:46,080 INFO     [MainThread] logger.py:info [DumpFolderNames.HAZI_HINAM] Exiting loop: single pass completed
+Logger       2026-11-13 10:09:46,080 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.HAZI_HINAM
+Logger       2026-11-13 10:09:46,255 INFO     [MainThread] logger.py:info Enabled scrapers: ['VICTORY_NEW_SOURCE']
+Logger       2026-11-13 10:09:46,261 INFO     [Thread-9 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:09:46,261 INFO     [Thread-9 (_run)] logger.py:info files_types is ['STORE_FILE']
+Logger       2026-11-13 10:09:46,261 INFO     [Thread-9 (_run)] logger.py:info file_name_regex is None
+Logger       2026-11-13 10:09:46,261 INFO     [Thread-9 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:09:46,261 INFO     [Thread-9 (_run)] logger.py:info Start scraping ['VICTORY_NEW_SOURCE'].
+Logger       2026-11-13 10:09:49,775 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.victory.VictoryNewSource'>
+Logger       2026-11-13 10:09:49,775 INFO     [MainThread] logger.py:info Initialized VictoryNewSource scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSourcestatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x000001D9D1610CB0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x000001D9D175BFE0>
+Logger       2026-11-13 10:09:49,775 INFO     [MainThread] logger.py:info scraping DumpFolderNames.VICTORY_NEW_SOURCE
+Logger       2026-11-13 10:09:49,775 INFO     [MainThread] logger.py:info [DumpFolderNames.VICTORY_NEW_SOURCE] Starting run #1
+Logger       2026-11-13 10:09:50,441 DEBUG    [MainThread] logger.py:debug Found 70 branches for chain 7290696200003; listing files once for the whole chain
+Logger       2026-11-13 10:09:50,488 DEBUG    [MainThread] logger.py:debug No branches for chain 7290058103393; skipping getfiles
+Logger       2026-11-13 10:09:51,307 DEBUG    [asyncio_0] logger.py:debug Retrieved 771 files from API
+Logger       2026-11-13 10:09:51,357 DEBUG    [MainThread] logger.py:debug Processing https://laibcatalog.co.il/webapi/7290696200003/Stores7290696200003-000-20261113060102-060102.gz (in-memory)
+Logger       2026-11-13 10:09:51,787 DEBUG    [MainThread] logger.py:debug File size is 2473 bytes.
+Logger       2026-11-13 10:09:51,792 DEBUG    [MainThread] logger.py:debug Saved https://laibcatalog.co.il/webapi/7290696200003/Stores7290696200003-000-20261113060102-060102.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource\Stores7290696200003-000-20261113060102-060102.xml sha256=ba28e120fa58c85bc83e7989c824591e92f6762e21e5f011c1758fd6ab085854
+Logger       2026-11-13 10:09:51,833 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource
+Logger       2026-11-13 10:09:51,838 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource\Stores7290696200003-000-20261113060102-060102.xml: size 14977
+Logger       2026-11-13 10:09:51,838 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource: Num of Files= 1,Size= 14977 MB
+Logger       2026-11-13 10:09:51,858 INFO     [MainThread] logger.py:info [DumpFolderNames.VICTORY_NEW_SOURCE] Run #1 completed. Files found: 1, Total files: 1
+Logger       2026-11-13 10:09:51,858 INFO     [MainThread] logger.py:info [DumpFolderNames.VICTORY_NEW_SOURCE] Exiting loop: single pass completed
+Logger       2026-11-13 10:09:51,858 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.VICTORY_NEW_SOURCE
+Logger       2026-11-13 10:09:51,985 INFO     [MainThread] logger.py:info Enabled scrapers: ['MAHSANI_ASHUK_NEW_SOURCE']
+Logger       2026-11-13 10:09:51,985 INFO     [Thread-13 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:09:51,985 INFO     [Thread-13 (_run)] logger.py:info files_types is ['STORE_FILE']
+Logger       2026-11-13 10:09:51,985 INFO     [Thread-13 (_run)] logger.py:info file_name_regex is None
+Logger       2026-11-13 10:09:51,985 INFO     [Thread-13 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:09:51,985 INFO     [Thread-13 (_run)] logger.py:info Start scraping ['MAHSANI_ASHUK_NEW_SOURCE'].
+Logger       2026-11-13 10:09:55,221 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.machsani_ashuk.MahsaniAShukNewSource'>
+Logger       2026-11-13 10:09:55,221 INFO     [MainThread] logger.py:info Initialized MahsaniAShukNewSource scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\MahsaniAShukNewSourcestatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x000001F30C537EF0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x000001F30C537EC0>
+Logger       2026-11-13 10:09:55,221 INFO     [MainThread] logger.py:info scraping DumpFolderNames.MAHSANI_ASHUK_NEW_SOURCE
+Logger       2026-11-13 10:09:55,221 INFO     [MainThread] logger.py:info [DumpFolderNames.MAHSANI_ASHUK_NEW_SOURCE] Starting run #1
+Logger       2026-11-13 10:09:55,882 DEBUG    [MainThread] logger.py:debug Found 72 branches for chain 7290661400001; listing files once for the whole chain
+Logger       2026-11-13 10:09:56,130 DEBUG    [asyncio_0] logger.py:debug Retrieved 499 files from API
+Logger       2026-11-13 10:09:56,409 DEBUG    [MainThread] logger.py:debug No branches for chain 7290633800006; skipping getfiles
+Logger       2026-11-13 10:09:56,453 DEBUG    [MainThread] logger.py:debug Processing https://laibcatalog.co.il/webapi/7290661400001/Stores7290661400001-000-20261113060100-060100.gz (in-memory)
+Logger       2026-11-13 10:09:56,869 DEBUG    [MainThread] logger.py:debug File size is 2766 bytes.
+Logger       2026-11-13 10:09:56,870 DEBUG    [MainThread] logger.py:debug Saved https://laibcatalog.co.il/webapi/7290661400001/Stores7290661400001-000-20261113060100-060100.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\MahsaniAShukNewSource\Stores7290661400001-000-20261113060100-060100.xml sha256=3cc940589b750e0b97bca3d87efd4d45ce17351247141dab26d462dd9989f115
+Logger       2026-11-13 10:09:56,919 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\MahsaniAShukNewSource
+Logger       2026-11-13 10:09:56,919 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\MahsaniAShukNewSource\Stores7290661400001-000-20261113060100-060100.xml: size 16670
+Logger       2026-11-13 10:09:56,919 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\MahsaniAShukNewSource: Num of Files= 1,Size= 16670 MB
+Logger       2026-11-13 10:09:56,939 INFO     [MainThread] logger.py:info [DumpFolderNames.MAHSANI_ASHUK_NEW_SOURCE] Run #1 completed. Files found: 1, Total files: 1
+Logger       2026-11-13 10:09:56,939 INFO     [MainThread] logger.py:info [DumpFolderNames.MAHSANI_ASHUK_NEW_SOURCE] Exiting loop: single pass completed
+Logger       2026-11-13 10:09:56,939 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.MAHSANI_ASHUK_NEW_SOURCE
+Logger       2026-11-13 10:09:57,078 INFO     [MainThread] logger.py:info Enabled scrapers: ['NETIV_HASED']
+Logger       2026-11-13 10:09:57,078 INFO     [Thread-17 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:09:57,078 INFO     [Thread-17 (_run)] logger.py:info files_types is ['STORE_FILE']
+Logger       2026-11-13 10:09:57,078 INFO     [Thread-17 (_run)] logger.py:info file_name_regex is None
+Logger       2026-11-13 10:09:57,078 INFO     [Thread-17 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:09:57,078 INFO     [Thread-17 (_run)] logger.py:info Start scraping ['NETIV_HASED'].
+Logger       2026-11-13 10:10:00,400 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.nativ_hashed.NetivHased'>
+Logger       2026-11-13 10:10:00,400 INFO     [MainThread] logger.py:info Initialized NetivHased scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHasedstatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x00000203CCBEE4E0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x00000203CC513FE0>
+Logger       2026-11-13 10:10:00,400 INFO     [MainThread] logger.py:info scraping DumpFolderNames.NETIV_HASED
+Logger       2026-11-13 10:10:00,400 INFO     [MainThread] logger.py:info [DumpFolderNames.NETIV_HASED] Starting run #1
+Logger       2026-11-13 10:10:00,575 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:10:00,575 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://app.netiv-hesed.com/?Date=2026-11-13, body=None
+Logger       2026-11-13 10:10:00,575 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:10:00,575 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://app.netiv-hesed.com/?Date=2026-11-12, body=None
+Logger       2026-11-13 10:10:00,575 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:10:00,575 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://app.netiv-hesed.com/?Date=2026-11-11, body=None
+Logger       2026-11-13 10:10:41,318 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=Stores7290058160839-000-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:10:55,295 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=Stores7290058160839-000-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:11:08,457 DEBUG    [MainThread] logger.py:debug File size is 3355 bytes.
+Logger       2026-11-13 10:11:08,457 DEBUG    [MainThread] logger.py:debug File size is 3357 bytes.
+Logger       2026-11-13 10:11:48,336 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=Stores7290058160839-000-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:12:12,786 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=Stores7290058160839-000-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\Stores7290058160839-000-20261113-061511.xml sha256=0ad6f3dd2a08fce48f19c0b71ad943f985937a5a04bbf2cef68d383c41194e4f
+Logger       2026-11-13 10:12:12,881 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=Stores7290058160839-000-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\Stores7290058160839-000-20261112-051348.xml sha256=bf725fee7d1ef61d7ebd2171e69e242a2113a0d03a6672574f0c83bcc594340f
+Logger       2026-11-13 10:12:12,991 DEBUG    [MainThread] logger.py:debug File size is 3357 bytes.
+Logger       2026-11-13 10:12:13,119 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=Stores7290058160839-000-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\Stores7290058160839-000-20261111-051729.xml sha256=6006ed04d48d179d16614866d9a75cbe6f7a8b2fcedd743001e458ebd80753a0
+Logger       2026-11-13 10:12:13,255 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased
+Logger       2026-11-13 10:12:13,255 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\Stores7290058160839-000-20261111-051729.xml: size 31003
+Logger       2026-11-13 10:12:13,255 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\Stores7290058160839-000-20261112-051348.xml: size 62006
+Logger       2026-11-13 10:12:13,255 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\Stores7290058160839-000-20261113-061511.xml: size 93009
+Logger       2026-11-13 10:12:13,255 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased: Num of Files= 3,Size= 93009 MB
+Logger       2026-11-13 10:12:13,322 INFO     [MainThread] logger.py:info [DumpFolderNames.NETIV_HASED] Run #1 completed. Files found: 3, Total files: 3
+Logger       2026-11-13 10:12:13,324 INFO     [MainThread] logger.py:info [DumpFolderNames.NETIV_HASED] Exiting loop: single pass completed
+Logger       2026-11-13 10:12:13,324 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.NETIV_HASED
+Logger       2026-11-13 10:12:13,452 INFO     [MainThread] logger.py:info Enabled scrapers: ['SUPER_PHARM']
+Logger       2026-11-13 10:12:13,452 INFO     [Thread-21 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:12:13,452 INFO     [Thread-21 (_run)] logger.py:info files_types is ['STORE_FILE']
+Logger       2026-11-13 10:12:13,452 INFO     [Thread-21 (_run)] logger.py:info file_name_regex is None
+Logger       2026-11-13 10:12:13,458 INFO     [Thread-21 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:12:13,458 INFO     [Thread-21 (_run)] logger.py:info Start scraping ['SUPER_PHARM'].
+Logger       2026-11-13 10:12:16,750 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.super_pharm.SuperPharm'>
+Logger       2026-11-13 10:12:16,750 INFO     [MainThread] logger.py:info Initialized SuperPharm scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharmstatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x000002416AC5E4E0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x000002416B1CBFE0>
+Logger       2026-11-13 10:12:16,750 INFO     [MainThread] logger.py:info scraping DumpFolderNames.SUPER_PHARM
+Logger       2026-11-13 10:12:16,752 INFO     [MainThread] logger.py:info [DumpFolderNames.SUPER_PHARM] Starting run #1
+Logger       2026-11-13 10:12:16,933 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:12:16,933 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=Stores, body=None
+Logger       2026-11-13 10:12:17,950 INFO     [MainThread] logger.py:info Found None pages
+Logger       2026-11-13 10:12:17,956 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=Stores, body=None
+Logger       2026-11-13 10:12:19,076 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=Stores', 'method': 'GET'}: Found 3 files
+Logger       2026-11-13 10:12:19,076 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=Stores', 'method': 'GET'}: Found 3 files initially
+Logger       2026-11-13 10:12:19,157 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/Stores7290172900007-000-20261113-070121.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:12:19,268 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/Stores7290172900007-000-20261112-070017.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:12:19,381 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/Stores7290172900007-000-20261111-070016.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:12:20,333 DEBUG    [MainThread] logger.py:debug File size is 10015 bytes.
+Logger       2026-11-13 10:12:20,333 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/Stores7290172900007-000-20261113-070121.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\Stores7290172900007-000-20261113-070121.xml sha256=180eca72216567a5b32dd56532f6c02dc3d3d54358dabe4863f1546deca37ceb
+Logger       2026-11-13 10:12:20,493 DEBUG    [MainThread] logger.py:debug File size is 10011 bytes.
+Logger       2026-11-13 10:12:20,493 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/Stores7290172900007-000-20261112-070017.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\Stores7290172900007-000-20261112-070017.xml sha256=01de157c9ab28f6fadb28417170fb5b5c1f83f7b59c78a66bbc0b4d33c053e4f
+Logger       2026-11-13 10:12:20,556 DEBUG    [MainThread] logger.py:debug File size is 10024 bytes.
+Logger       2026-11-13 10:12:20,556 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/Stores7290172900007-000-20261111-070016.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\Stores7290172900007-000-20261111-070016.xml sha256=a9d1d0900804a82cc219cf4823139d360c5df336eda0d8c11dcfa097ff4c3c12
+Logger       2026-11-13 10:12:20,595 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm
+Logger       2026-11-13 10:12:20,595 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\Stores7290172900007-000-20261111-070016.xml: size 102321
+Logger       2026-11-13 10:12:20,595 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\Stores7290172900007-000-20261112-070017.xml: size 204642
+Logger       2026-11-13 10:12:20,595 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\Stores7290172900007-000-20261113-070121.xml: size 306963
+Logger       2026-11-13 10:12:20,595 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm: Num of Files= 3,Size= 306963 MB
+Logger       2026-11-13 10:12:20,612 INFO     [MainThread] logger.py:info [DumpFolderNames.SUPER_PHARM] Run #1 completed. Files found: 3, Total files: 3
+Logger       2026-11-13 10:12:20,614 INFO     [MainThread] logger.py:info [DumpFolderNames.SUPER_PHARM] Exiting loop: single pass completed
+Logger       2026-11-13 10:12:20,614 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.SUPER_PHARM
+Logger       2026-11-13 10:12:20,756 INFO     [MainThread] logger.py:info Enabled scrapers: ['HET_COHEN_NEW_SOURCE']
+Logger       2026-11-13 10:12:20,756 INFO     [Thread-25 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:12:20,756 INFO     [Thread-25 (_run)] logger.py:info files_types is ['STORE_FILE']
+Logger       2026-11-13 10:12:20,756 INFO     [Thread-25 (_run)] logger.py:info file_name_regex is None
+Logger       2026-11-13 10:12:20,756 INFO     [Thread-25 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:12:20,756 INFO     [Thread-25 (_run)] logger.py:info Start scraping ['HET_COHEN_NEW_SOURCE'].
+Logger       2026-11-13 10:12:24,372 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.het_cohen.HetCohenNewSource'>
+Logger       2026-11-13 10:12:24,372 INFO     [MainThread] logger.py:info Initialized HetCohenNewSource scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HetCohenNewSourcestatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x00000150CE0EE4E0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x00000150CA960860>
+Logger       2026-11-13 10:12:24,372 INFO     [MainThread] logger.py:info scraping DumpFolderNames.HET_COHEN_NEW_SOURCE
+Logger       2026-11-13 10:12:24,372 INFO     [MainThread] logger.py:info [DumpFolderNames.HET_COHEN_NEW_SOURCE] Starting run #1
+Logger       2026-11-13 10:12:25,060 DEBUG    [MainThread] logger.py:debug Found 5 branches for chain 7290455000004; listing files once for the whole chain
+Logger       2026-11-13 10:12:25,096 DEBUG    [asyncio_0] logger.py:debug Retrieved 51 files from API
+Logger       2026-11-13 10:12:25,164 DEBUG    [MainThread] logger.py:debug Processing https://laibcatalog.co.il/webapi/7290455000004/Stores7290455000004-000-20261113060200-060200.gz (in-memory)
+Logger       2026-11-13 10:12:25,644 DEBUG    [MainThread] logger.py:debug File size is 374 bytes.
+Logger       2026-11-13 10:12:25,650 DEBUG    [MainThread] logger.py:debug Saved https://laibcatalog.co.il/webapi/7290455000004/Stores7290455000004-000-20261113060200-060200.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HetCohenNewSource\Stores7290455000004-000-20261113060200-060200.xml sha256=b7767ab086114eea0550f5d884cc6055487ace2c6d84f3d7e4b374cd43314819
+Logger       2026-11-13 10:12:25,680 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HetCohenNewSource
+Logger       2026-11-13 10:12:25,680 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HetCohenNewSource\Stores7290455000004-000-20261113060200-060200.xml: size 1086
+Logger       2026-11-13 10:12:25,680 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HetCohenNewSource: Num of Files= 1,Size= 1086 MB
+Logger       2026-11-13 10:12:25,712 INFO     [MainThread] logger.py:info [DumpFolderNames.HET_COHEN_NEW_SOURCE] Run #1 completed. Files found: 1, Total files: 1
+Logger       2026-11-13 10:12:25,712 INFO     [MainThread] logger.py:info [DumpFolderNames.HET_COHEN_NEW_SOURCE] Exiting loop: single pass completed
+Logger       2026-11-13 10:12:25,712 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.HET_COHEN_NEW_SOURCE
+Logger       2026-11-13 10:12:25,838 INFO     [MainThread] logger.py:info Enabled scrapers: ['HAZI_HINAM']
+Logger       2026-11-13 10:12:25,838 INFO     [Thread-29 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:12:25,838 INFO     [Thread-29 (_run)] logger.py:info files_types is ['PRICE_FULL_FILE']
+Logger       2026-11-13 10:12:25,838 INFO     [Thread-29 (_run)] logger.py:info file_name_regex is (?i)pricefull\d+-(?:\d+-)?0*(?:209)-\d{8,}
+Logger       2026-11-13 10:12:25,838 INFO     [Thread-29 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:12:25,838 INFO     [Thread-29 (_run)] logger.py:info Start scraping ['HAZI_HINAM'].
+Logger       2026-11-13 10:12:29,162 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.hazihinam.HaziHinam'>
+Logger       2026-11-13 10:12:29,162 INFO     [MainThread] logger.py:info Initialized HaziHinam scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinamstatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x0000020F43DF71D0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x0000020F42A3BFE0>
+Logger       2026-11-13 10:12:29,164 INFO     [MainThread] logger.py:info scraping DumpFolderNames.HAZI_HINAM
+Logger       2026-11-13 10:12:29,164 INFO     [MainThread] logger.py:info [DumpFolderNames.HAZI_HINAM] Starting run #1
+Logger       2026-11-13 10:12:29,324 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:12:29,327 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=1&f=null, body=None
+Logger       2026-11-13 10:12:29,327 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:12:29,327 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null, body=None
+Logger       2026-11-13 10:12:30,197 INFO     [MainThread] logger.py:info Found 4 pages
+Logger       2026-11-13 10:12:30,199 INFO     [MainThread] logger.py:info Found 2 pages
+Logger       2026-11-13 10:12:30,243 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=1&f=null&p=1, body=None
+Logger       2026-11-13 10:12:30,243 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=1&f=null&p=2, body=None
+Logger       2026-11-13 10:12:30,243 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=1, body=None
+Logger       2026-11-13 10:12:30,243 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=2, body=None
+Logger       2026-11-13 10:12:30,243 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=3, body=None
+Logger       2026-11-13 10:12:31,291 INFO     [MainThread] logger.py:info Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=1', 'method': 'GET'}: Found 50 files
+Logger       2026-11-13 10:12:31,291 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=1', 'method': 'GET'}: Found 50 files initially
+Logger       2026-11-13 10:12:31,304 INFO     [MainThread] logger.py:info Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=2', 'method': 'GET'}: Found 50 files
+Logger       2026-11-13 10:12:31,304 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=2', 'method': 'GET'}: Found 50 files initially
+Logger       2026-11-13 10:12:31,304 INFO     [MainThread] logger.py:info Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=3', 'method': 'GET'}: Found 50 files
+Logger       2026-11-13 10:12:31,304 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=3', 'method': 'GET'}: Found 50 files initially
+Logger       2026-11-13 10:12:31,319 INFO     [MainThread] logger.py:info Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=1&f=null&p=2', 'method': 'GET'}: Found 9 files
+Logger       2026-11-13 10:12:31,319 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=1&f=null&p=2', 'method': 'GET'}: Found 9 files initially
+Logger       2026-11-13 10:12:31,319 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=4, body=None
+Logger       2026-11-13 10:12:32,011 INFO     [MainThread] logger.py:info Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=1&f=null&p=1', 'method': 'GET'}: Found 50 files
+Logger       2026-11-13 10:12:32,011 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-13&t=1&f=null&p=1', 'method': 'GET'}: Found 50 files initially
+Logger       2026-11-13 10:12:33,518 INFO     [MainThread] logger.py:info Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=4', 'method': 'GET'}: Found 21 files
+Logger       2026-11-13 10:12:33,518 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'https://shop.hazi-hinam.co.il/Prices?d=2026-11-12&t=1&f=null&p=4', 'method': 'GET'}: Found 21 files initially
+Logger       2026-11-13 10:12:33,574 DEBUG    [MainThread] logger.py:debug Processing https://hazihinamprod01.blob.core.windows.net/regulatories/PriceFull7290700100008-000-209-20261113-001811.gz (in-memory)
+Logger       2026-11-13 10:12:34,117 DEBUG    [MainThread] logger.py:debug Processing https://hazihinamprod01.blob.core.windows.net/regulatories/PriceFull7290700100008-000-209-20261112-003410.gz (in-memory)
+Logger       2026-11-13 10:12:35,092 DEBUG    [MainThread] logger.py:debug File size is 884103 bytes.
+Logger       2026-11-13 10:12:35,135 DEBUG    [MainThread] logger.py:debug Saved https://hazihinamprod01.blob.core.windows.net/regulatories/PriceFull7290700100008-000-209-20261113-001811.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam\PriceFull7290700100008-000-209-20261113-001811.gz.xml sha256=df078a29ed1ac1555d9e9770f3d76dfc058862969a258d997002e5bad6210bd6
+Logger       2026-11-13 10:12:35,661 DEBUG    [MainThread] logger.py:debug File size is 886850 bytes.
+Logger       2026-11-13 10:12:35,721 DEBUG    [MainThread] logger.py:debug Saved https://hazihinamprod01.blob.core.windows.net/regulatories/PriceFull7290700100008-000-209-20261112-003410.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam\PriceFull7290700100008-000-209-20261112-003410.gz.xml sha256=e0c3dee645984e33b5e01fb0daba176f79da43227c394cbba7e83902b27d139b
+Logger       2026-11-13 10:12:35,766 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam
+Logger       2026-11-13 10:12:35,772 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam\PriceFull7290700100008-000-209-20261112-003410.gz.xml: size 13153317
+Logger       2026-11-13 10:12:35,772 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam\PriceFull7290700100008-000-209-20261113-001811.gz.xml: size 26303491
+Logger       2026-11-13 10:12:35,772 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\HaziHinam: Num of Files= 2,Size= 26303491 MB
+Logger       2026-11-13 10:12:35,797 INFO     [MainThread] logger.py:info [DumpFolderNames.HAZI_HINAM] Run #1 completed. Files found: 2, Total files: 2
+Logger       2026-11-13 10:12:35,797 INFO     [MainThread] logger.py:info [DumpFolderNames.HAZI_HINAM] Exiting loop: single pass completed
+Logger       2026-11-13 10:12:35,797 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.HAZI_HINAM
+Logger       2026-11-13 10:12:36,405 INFO     [MainThread] logger.py:info Enabled scrapers: ['VICTORY_NEW_SOURCE']
+Logger       2026-11-13 10:12:36,405 INFO     [Thread-33 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:12:36,405 INFO     [Thread-33 (_run)] logger.py:info files_types is ['PRICE_FULL_FILE']
+Logger       2026-11-13 10:12:36,405 INFO     [Thread-33 (_run)] logger.py:info file_name_regex is (?i)pricefull\d+-(?:\d+-)?0*(?:26|81|91)-\d{8,}
+Logger       2026-11-13 10:12:36,405 INFO     [Thread-33 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:12:36,405 INFO     [Thread-33 (_run)] logger.py:info Start scraping ['VICTORY_NEW_SOURCE'].
+Logger       2026-11-13 10:12:40,032 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.victory.VictoryNewSource'>
+Logger       2026-11-13 10:12:40,032 INFO     [MainThread] logger.py:info Initialized VictoryNewSource scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSourcestatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x00000276ACF0FFE0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x00000276ACF0FEF0>
+Logger       2026-11-13 10:12:40,032 INFO     [MainThread] logger.py:info scraping DumpFolderNames.VICTORY_NEW_SOURCE
+Logger       2026-11-13 10:12:40,032 INFO     [MainThread] logger.py:info [DumpFolderNames.VICTORY_NEW_SOURCE] Starting run #1
+Logger       2026-11-13 10:12:40,721 DEBUG    [MainThread] logger.py:debug Found 70 branches for chain 7290696200003; listing files once for the whole chain
+Logger       2026-11-13 10:12:41,062 DEBUG    [asyncio_0] logger.py:debug Retrieved 785 files from API
+Logger       2026-11-13 10:12:41,673 DEBUG    [MainThread] logger.py:debug No branches for chain 7290058103393; skipping getfiles
+Logger       2026-11-13 10:12:43,293 DEBUG    [MainThread] logger.py:debug Processing https://laibcatalog.co.il/webapi/7290696200003/PriceFull7290696200003-001-081-20261113-050429.gz (in-memory)
+Logger       2026-11-13 10:12:44,066 DEBUG    [MainThread] logger.py:debug Processing https://laibcatalog.co.il/webapi/7290696200003/PriceFull7290696200003-001-091-20261113-050244.gz (in-memory)
+Logger       2026-11-13 10:12:44,341 DEBUG    [MainThread] logger.py:debug Processing https://laibcatalog.co.il/webapi/7290696200003/PriceFull7290696200003-001-026-20261113-050217.gz (in-memory)
+Logger       2026-11-13 10:12:45,454 DEBUG    [MainThread] logger.py:debug File size is 575106 bytes.
+Logger       2026-11-13 10:12:45,489 DEBUG    [MainThread] logger.py:debug Saved https://laibcatalog.co.il/webapi/7290696200003/PriceFull7290696200003-001-081-20261113-050429.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource\PriceFull7290696200003-001-081-20261113-050429.xml sha256=c5c91c1a13970a1dc21b8529e2be49626ace76b94de8c15e4db006f51b4be7a2
+Logger       2026-11-13 10:12:46,017 DEBUG    [MainThread] logger.py:debug File size is 536664 bytes.
+Logger       2026-11-13 10:12:46,061 DEBUG    [MainThread] logger.py:debug Saved https://laibcatalog.co.il/webapi/7290696200003/PriceFull7290696200003-001-091-20261113-050244.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource\PriceFull7290696200003-001-091-20261113-050244.xml sha256=e2cacc68309b0b8af754acf854e8b8c6903f61053e24b091b85b0e4a45193725
+Logger       2026-11-13 10:12:46,187 DEBUG    [MainThread] logger.py:debug File size is 472398 bytes.
+Logger       2026-11-13 10:12:46,214 DEBUG    [MainThread] logger.py:debug Saved https://laibcatalog.co.il/webapi/7290696200003/PriceFull7290696200003-001-026-20261113-050217.gz to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource\PriceFull7290696200003-001-026-20261113-050217.xml sha256=06b77a39008e099b0e8788bcec452779f9f24b682aca50626389e1ebc0abc541
+Logger       2026-11-13 10:12:46,263 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource
+Logger       2026-11-13 10:12:46,263 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource\PriceFull7290696200003-001-026-20261113-050217.xml: size 7263466
+Logger       2026-11-13 10:12:46,263 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource\PriceFull7290696200003-001-081-20261113-050429.xml: size 16181362
+Logger       2026-11-13 10:12:46,263 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource\PriceFull7290696200003-001-091-20261113-050244.xml: size 24312905
+Logger       2026-11-13 10:12:46,263 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\VictoryNewSource: Num of Files= 3,Size= 24312905 MB
+Logger       2026-11-13 10:12:46,276 INFO     [MainThread] logger.py:info [DumpFolderNames.VICTORY_NEW_SOURCE] Run #1 completed. Files found: 3, Total files: 3
+Logger       2026-11-13 10:12:46,276 INFO     [MainThread] logger.py:info [DumpFolderNames.VICTORY_NEW_SOURCE] Exiting loop: single pass completed
+Logger       2026-11-13 10:12:46,276 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.VICTORY_NEW_SOURCE
+Logger       2026-11-13 10:12:47,555 INFO     [MainThread] logger.py:info Enabled scrapers: ['NETIV_HASED']
+Logger       2026-11-13 10:12:47,566 INFO     [Thread-37 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:12:47,566 INFO     [Thread-37 (_run)] logger.py:info files_types is ['PRICE_FULL_FILE']
+Logger       2026-11-13 10:12:47,566 INFO     [Thread-37 (_run)] logger.py:info file_name_regex is (?i)pricefull\d+-(?:\d+-)?0*(?:16|215|219|235|248|300|301|305|306)-\d{8,}
+Logger       2026-11-13 10:12:47,567 INFO     [Thread-37 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:12:47,567 INFO     [Thread-37 (_run)] logger.py:info Start scraping ['NETIV_HASED'].
+Logger       2026-11-13 10:12:51,520 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.nativ_hashed.NetivHased'>
+Logger       2026-11-13 10:12:51,520 INFO     [MainThread] logger.py:info Initialized NetivHased scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHasedstatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x000001B329948CB0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x000001B32847BFE0>
+Logger       2026-11-13 10:12:51,520 INFO     [MainThread] logger.py:info scraping DumpFolderNames.NETIV_HASED
+Logger       2026-11-13 10:12:51,524 INFO     [MainThread] logger.py:info [DumpFolderNames.NETIV_HASED] Starting run #1
+Logger       2026-11-13 10:12:51,730 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:12:51,738 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://app.netiv-hesed.com/?Date=2026-11-13, body=None
+Logger       2026-11-13 10:12:51,738 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:12:51,738 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://app.netiv-hesed.com/?Date=2026-11-12, body=None
+Logger       2026-11-13 10:12:51,738 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:12:51,738 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=https://app.netiv-hesed.com/?Date=2026-11-11, body=None
+Logger       2026-11-13 10:13:35,236 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-016-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:40,454 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-215-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:40,868 DEBUG    [MainThread] logger.py:debug File size is 292993 bytes.
+Logger       2026-11-13 10:13:40,937 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-219-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:42,752 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-235-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:44,298 DEBUG    [MainThread] logger.py:debug File size is 314140 bytes.
+Logger       2026-11-13 10:13:44,298 DEBUG    [MainThread] logger.py:debug File size is 339377 bytes.
+Logger       2026-11-13 10:13:44,365 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-248-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:44,365 DEBUG    [MainThread] logger.py:debug File size is 260368 bytes.
+Logger       2026-11-13 10:13:44,365 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-016-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-016-20261112-051348.xml sha256=9a28670df67839121b3dff67fe6cbcd6c4b37fef673f7d6ea3fc54674314e12f
+Logger       2026-11-13 10:13:46,620 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-215-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-215-20261112-051348.xml sha256=8f7f5f02a36a56b9eae8304cd72496cac3a5f7b015788f24ab2174e4e941b768
+Logger       2026-11-13 10:13:46,674 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-219-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-219-20261112-051348.xml sha256=3f00aed9d7f08da0725a12809ed601e7ac7977ca1e0d82c4bcc3ae23008b01fe
+Logger       2026-11-13 10:13:46,816 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-300-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:46,816 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-235-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-235-20261112-051348.xml sha256=8653bc70dfaeb96b6090c3e0e1c777b701e1475f94be674c34e294d40f28d2f4
+Logger       2026-11-13 10:13:46,883 DEBUG    [MainThread] logger.py:debug File size is 229212 bytes.
+Logger       2026-11-13 10:13:47,079 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-301-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:47,545 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-305-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:47,836 DEBUG    [MainThread] logger.py:debug File size is 278700 bytes.
+Logger       2026-11-13 10:13:47,879 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-306-20261112-051348.GZ (in-memory)
+Logger       2026-11-13 10:13:47,879 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-248-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-248-20261112-051348.xml sha256=b3ecda16154725f710f9132de6e31bb9522ad1ddf8bd6a7dc62974584a97c112
+Logger       2026-11-13 10:13:47,957 DEBUG    [MainThread] logger.py:debug File size is 418499 bytes.
+Logger       2026-11-13 10:13:50,725 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-016-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:13:50,731 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-300-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-300-20261112-051348.xml sha256=2125e71f3e3534072ad79847fe64813da7a2957679d43525a01d26cf519a7731
+Logger       2026-11-13 10:13:50,802 DEBUG    [MainThread] logger.py:debug File size is 240838 bytes.
+Logger       2026-11-13 10:13:50,802 DEBUG    [MainThread] logger.py:debug File size is 371486 bytes.
+Logger       2026-11-13 10:13:56,099 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-215-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:13:56,099 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-301-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-301-20261112-051348.xml sha256=95ad063f709065460ec206f2f16008e84995a7903277d91d3a03320a169f4c50
+Logger       2026-11-13 10:13:56,168 DEBUG    [MainThread] logger.py:debug File size is 292970 bytes.
+Logger       2026-11-13 10:13:56,170 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-305-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-305-20261112-051348.xml sha256=ed1cd5ab97e8828e1aad3f41d611ea3b7f66e2b2df7c89714b5c2314b753f373
+Logger       2026-11-13 10:13:56,754 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-219-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:13:56,759 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-306-20261112-051348.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-306-20261112-051348.xml sha256=67d79d8e5d2ac1b1a38d88c3cdbd01360bd9d652a5d0adfd06d09037a893ac5d
+Logger       2026-11-13 10:13:58,421 DEBUG    [MainThread] logger.py:debug File size is 312881 bytes.
+Logger       2026-11-13 10:13:58,472 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-235-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:14:00,114 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-016-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-016-20261113-061511.xml sha256=aaec7e986f5db8be1fc2e82179c966e74b0a6fcd5ffd585556e91b3279f133a1
+Logger       2026-11-13 10:14:00,171 DEBUG    [MainThread] logger.py:debug File size is 339551 bytes.
+Logger       2026-11-13 10:14:00,235 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-248-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:14:00,235 DEBUG    [MainThread] logger.py:debug File size is 260018 bytes.
+Logger       2026-11-13 10:14:02,898 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-300-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:14:02,898 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-215-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-215-20261113-061511.xml sha256=79b259b2e761e7a9fe169a1a6969c041d1be26dcc5a123c12e2c33542a9bf8be
+Logger       2026-11-13 10:14:02,967 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-219-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-219-20261113-061511.xml sha256=d3e0fcb4efb6278b62cdb71d002a1699d7ce0e216ad8e0a3a85d0f6edd63a630
+Logger       2026-11-13 10:14:03,030 DEBUG    [MainThread] logger.py:debug File size is 229542 bytes.
+Logger       2026-11-13 10:14:03,272 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-301-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:14:03,859 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-235-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-235-20261113-061511.xml sha256=b664137f97ed98ff7ea4dd32d8baad3f2828ebbaa87b655c246fe860f74a760a
+Logger       2026-11-13 10:14:03,998 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-305-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:14:03,998 DEBUG    [MainThread] logger.py:debug File size is 278371 bytes.
+Logger       2026-11-13 10:14:03,998 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-248-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-248-20261113-061511.xml sha256=eeab8c2fe19d619fc1030d86abdeb81499ba4334fb8871a4c9af6661908d409d
+Logger       2026-11-13 10:14:04,314 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-306-20261113-061511.GZ (in-memory)
+Logger       2026-11-13 10:14:04,314 DEBUG    [MainThread] logger.py:debug File size is 418476 bytes.
+Logger       2026-11-13 10:14:41,499 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-016-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:14:41,499 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-300-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-300-20261113-061511.xml sha256=9d430db49d0fad08276f33f11e67cc3b1c4f13fa1d494121d3b74405b565caf3
+Logger       2026-11-13 10:14:41,588 DEBUG    [MainThread] logger.py:debug File size is 240209 bytes.
+Logger       2026-11-13 10:14:41,588 DEBUG    [MainThread] logger.py:debug File size is 371361 bytes.
+Logger       2026-11-13 10:14:48,594 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-215-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:14:48,594 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-301-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-301-20261113-061511.xml sha256=aed9b76f5f8c08da1faba1cce04edc2e90ac2f962d1bfa3f371ebf8aa6fcc5ed
+Logger       2026-11-13 10:14:48,679 DEBUG    [MainThread] logger.py:debug File size is 292928 bytes.
+Logger       2026-11-13 10:14:48,679 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-305-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-305-20261113-061511.xml sha256=30bbc0e043ed33593bbf41719e6790c59dd8f706f448a46654d1149d598a6043
+Logger       2026-11-13 10:14:49,496 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-219-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:14:49,496 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-306-20261113-061511.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-306-20261113-061511.xml sha256=38c371e40c01e0b70fe65f248ca8d56724a06d5dd0de9203a4e9fd8a5421b6f1
+Logger       2026-11-13 10:14:49,652 DEBUG    [MainThread] logger.py:debug File size is 313756 bytes.
+Logger       2026-11-13 10:14:51,725 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-235-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:14:53,645 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-016-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-016-20261111-051729.xml sha256=df969856d21342f497fa5a5d4b796131b4f139d64dac1c1c13c4c8ed6bdeffb2
+Logger       2026-11-13 10:14:53,740 DEBUG    [MainThread] logger.py:debug File size is 339198 bytes.
+Logger       2026-11-13 10:14:53,838 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-248-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:14:53,838 DEBUG    [MainThread] logger.py:debug File size is 260304 bytes.
+Logger       2026-11-13 10:14:53,838 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-215-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-215-20261111-051729.xml sha256=7ee54fa158013874b8150a4fdbb858004e8d1a990faba64042fcdbefeadb1f28
+Logger       2026-11-13 10:14:56,629 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-300-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:14:56,629 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-219-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-219-20261111-051729.xml sha256=caa1041aa0aea8be001aecbfa77d9fe4994a594e1d7063b15392253b082fc389
+Logger       2026-11-13 10:14:56,719 DEBUG    [MainThread] logger.py:debug File size is 229159 bytes.
+Logger       2026-11-13 10:14:56,898 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-235-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-235-20261111-051729.xml sha256=6434e6e1255d9ce2a872964d1b03a5c87394d34d42b245931ce8747adad8043f
+Logger       2026-11-13 10:14:57,065 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-301-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:14:57,817 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-305-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:14:57,817 DEBUG    [MainThread] logger.py:debug File size is 279323 bytes.
+Logger       2026-11-13 10:14:57,817 DEBUG    [MainThread] logger.py:debug File size is 418578 bytes.
+Logger       2026-11-13 10:14:57,820 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-002-248-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-248-20261111-051729.xml sha256=f4a8eee4569d9ab8c681adf6cdd8842036d3d6bbf5bfb219d840b4afc13682f6
+Logger       2026-11-13 10:14:58,285 DEBUG    [MainThread] logger.py:debug Processing https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-306-20261111-051729.GZ (in-memory)
+Logger       2026-11-13 10:15:06,726 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-300-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-300-20261111-051729.xml sha256=0e724caf9ac4b6ff1a9383e3c5d17a72904d4c15f8473d5284f99e1da839259e
+Logger       2026-11-13 10:15:06,827 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-301-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-301-20261111-051729.xml sha256=093ecd2ba22215a06213017b17c042a35d618e1ef5c2b1ba31b457ffb35fa317
+Logger       2026-11-13 10:15:06,938 DEBUG    [MainThread] logger.py:debug File size is 241234 bytes.
+Logger       2026-11-13 10:15:06,938 DEBUG    [MainThread] logger.py:debug File size is 371293 bytes.
+Logger       2026-11-13 10:15:07,147 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-305-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-305-20261111-051729.xml sha256=ba299fbb30acb3b7e61c26c13f8d60e5edfffdd76f5deae83a85a8d1d9bc2d73
+Logger       2026-11-13 10:15:07,257 DEBUG    [MainThread] logger.py:debug Saved https://app.netiv-hesed.com/Prices/Download?fileName=PriceFull7290058160839-009-306-20261111-051729.GZ to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-306-20261111-051729.xml sha256=a2ed96684b7d72d0530a90b2b611ec7e4746de78faa1b775bcead84528613470
+Logger       2026-11-13 10:15:07,587 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased
+Logger       2026-11-13 10:15:07,587 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-016-20261111-051729.xml: size 5298197
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-016-20261112-051348.xml: size 10597201
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-016-20261113-061511.xml: size 15905738
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-215-20261111-051729.xml: size 21516757
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-215-20261112-051348.xml: size 27131678
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-215-20261113-061511.xml: size 32740641
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-219-20261111-051729.xml: size 38841372
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-219-20261112-051348.xml: size 44942589
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-219-20261113-061511.xml: size 51047491
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-235-20261111-051729.xml: size 55723812
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-235-20261112-051348.xml: size 60398508
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-235-20261113-061511.xml: size 65078896
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-248-20261111-051729.xml: size 69119057
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-248-20261112-051348.xml: size 73159347
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-002-248-20261113-061511.xml: size 77209435
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-300-20261111-051729.xml: size 82141075
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-300-20261112-051348.xml: size 87066091
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-300-20261113-061511.xml: size 91988574
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-301-20261111-051729.xml: size 99472964
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-301-20261112-051348.xml: size 106965932
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-301-20261113-061511.xml: size 114465763
+Logger       2026-11-13 10:15:07,589 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-305-20261111-051729.xml: size 118660457
+Logger       2026-11-13 10:15:07,592 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-305-20261112-051348.xml: size 122849982
+Logger       2026-11-13 10:15:07,592 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-305-20261113-061511.xml: size 127030022
+Logger       2026-11-13 10:15:07,592 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-306-20261111-051729.xml: size 133704427
+Logger       2026-11-13 10:15:07,593 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-306-20261112-051348.xml: size 140378992
+Logger       2026-11-13 10:15:07,593 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased\PriceFull7290058160839-009-306-20261113-061511.xml: size 147051811
+Logger       2026-11-13 10:15:07,594 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\NetivHased: Num of Files= 27,Size= 147051811 MB
+Logger       2026-11-13 10:15:07,710 INFO     [MainThread] logger.py:info [DumpFolderNames.NETIV_HASED] Run #1 completed. Files found: 27, Total files: 27
+Logger       2026-11-13 10:15:07,710 INFO     [MainThread] logger.py:info [DumpFolderNames.NETIV_HASED] Exiting loop: single pass completed
+Logger       2026-11-13 10:15:07,711 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.NETIV_HASED
+Logger       2026-11-13 10:15:11,929 INFO     [MainThread] logger.py:info Enabled scrapers: ['SUPER_PHARM']
+Logger       2026-11-13 10:15:11,929 INFO     [Thread-41 (_run)] logger.py:info Limit is None
+Logger       2026-11-13 10:15:11,929 INFO     [Thread-41 (_run)] logger.py:info files_types is ['PRICE_FULL_FILE']
+Logger       2026-11-13 10:15:11,929 INFO     [Thread-41 (_run)] logger.py:info file_name_regex is (?i)pricefull\d+-(?:\d+-)?0*(?:103|168|169|173|199|243|311|313|319|49|5|59|6)-\d{8,}
+Logger       2026-11-13 10:15:11,929 INFO     [Thread-41 (_run)] logger.py:info re_download counts are {}
+Logger       2026-11-13 10:15:11,929 INFO     [Thread-41 (_run)] logger.py:info Start scraping ['SUPER_PHARM'].
+Logger       2026-11-13 10:15:17,665 INFO     [MainThread] logger.py:info Starting scrapper <class 'il_supermarket_scarper.scrappers.super_pharm.SuperPharm'>
+Logger       2026-11-13 10:15:17,665 INFO     [MainThread] logger.py:info Initialized SuperPharm scraper withoutput: disk:C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharmstatus database: <il_supermarket_scarper.utils.databases.json_file.JsonDataBase object at 0x00000298B0657FE0>file output: <il_supermarket_scarper.utils.files.file_output.DiskFileOutput object at 0x00000298B0657200>
+Logger       2026-11-13 10:15:17,665 INFO     [MainThread] logger.py:info scraping DumpFolderNames.SUPER_PHARM
+Logger       2026-11-13 10:15:17,667 INFO     [MainThread] logger.py:info [DumpFolderNames.SUPER_PHARM] Starting run #1
+Logger       2026-11-13 10:15:17,928 DEBUG    [CancellableRequest] logger.py:debug Didn't find cookie file
+Logger       2026-11-13 10:15:17,928 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull, body=None
+Logger       2026-11-13 10:15:19,104 INFO     [MainThread] logger.py:info Found 46 pages
+Logger       2026-11-13 10:15:19,106 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=1, body=None
+Logger       2026-11-13 10:15:19,106 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=2, body=None
+Logger       2026-11-13 10:15:19,111 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=3, body=None
+Logger       2026-11-13 10:15:19,114 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=4, body=None
+Logger       2026-11-13 10:15:19,117 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=5, body=None
+Logger       2026-11-13 10:15:20,767 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=1', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:20,767 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=1', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:20,784 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=5', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:20,784 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=5', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:20,796 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=4', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:20,798 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=4', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:20,805 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=3', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:20,805 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=3', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:20,815 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=2', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:20,815 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=2', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:20,820 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=6, body=None
+Logger       2026-11-13 10:15:20,822 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=7, body=None
+Logger       2026-11-13 10:15:20,824 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=8, body=None
+Logger       2026-11-13 10:15:20,828 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=9, body=None
+Logger       2026-11-13 10:15:20,974 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=10, body=None
+Logger       2026-11-13 10:15:21,019 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261113-071546.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:21,167 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261113-071541.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:21,269 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261113-071536.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:24,598 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261113-071333.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:26,174 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261113-071541.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261113-071541.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:26,183 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261113-071541.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:15:26,183 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261113-071541.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:26,196 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=8', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:26,196 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=8', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:26,197 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=9', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:26,197 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=9', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:26,214 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=7', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:26,214 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=7', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:26,214 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=6', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:26,214 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=6', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:26,229 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=10', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:26,229 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=10', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:26,230 DEBUG    [MainThread] logger.py:debug File size is 719314 bytes.
+Logger       2026-11-13 10:15:26,230 DEBUG    [MainThread] logger.py:debug File size is 607324 bytes.
+Logger       2026-11-13 10:15:26,280 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=11, body=None
+Logger       2026-11-13 10:15:26,280 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=12, body=None
+Logger       2026-11-13 10:15:26,305 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=13, body=None
+Logger       2026-11-13 10:15:26,307 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=14, body=None
+Logger       2026-11-13 10:15:26,380 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261113-071536.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-311-20261113-071536.xml sha256=d385ad633f372df73a0a947e8d32ea235747b9609841a7907777f9ea3a3e5ca0
+Logger       2026-11-13 10:15:26,444 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261113-071546.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-319-20261113-071546.xml sha256=d8bc93687e4531dbeda1cca38bf5e01de41296f065db16a9f938f9cdf745bcd9
+Logger       2026-11-13 10:15:26,444 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=15, body=None
+Logger       2026-11-13 10:15:26,556 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261113-071115.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:26,678 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261113-071112.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:28,015 DEBUG    [MainThread] logger.py:debug File size is 653828 bytes.
+Logger       2026-11-13 10:15:28,078 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-199-20261113-071206.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:29,175 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261113-071112.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261113-071112.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:29,185 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261113-071112.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:15:29,185 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261113-071112.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:29,225 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-103-20261113-070834.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:29,233 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=14', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:29,233 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=14', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:29,242 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=13', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:29,242 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=13', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:29,242 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=12', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:29,242 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=12', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:29,242 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=11', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:29,242 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=11', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:29,258 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=15', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:29,258 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=15', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:29,260 DEBUG    [MainThread] logger.py:debug File size is 584361 bytes.
+Logger       2026-11-13 10:15:32,533 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261113-071333.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-243-20261113-071333.xml sha256=0ebff39d511a38df39d8b85fa81f2322e5c520605216b851ba2c32106f98a921
+Logger       2026-11-13 10:15:32,571 DEBUG    [MainThread] logger.py:debug File size is 680815 bytes.
+Logger       2026-11-13 10:15:32,571 DEBUG    [MainThread] logger.py:debug File size is 549003 bytes.
+Logger       2026-11-13 10:15:32,571 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=16, body=None
+Logger       2026-11-13 10:15:32,621 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=17, body=None
+Logger       2026-11-13 10:15:32,621 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261113-071115.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-169-20261113-071115.xml sha256=fb26a1ccef950d3fc0bf941f98eb13efd59810429aa7ecd0b6a396bebc0d3675
+Logger       2026-11-13 10:15:32,627 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=18, body=None
+Logger       2026-11-13 10:15:32,664 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=19, body=None
+Logger       2026-11-13 10:15:36,384 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-103-20261113-070834.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-103-20261113-070834.xml sha256=7b87a8f6c697f1b71447d308706e66934f52f75bd84cd62812fc57d714b4c397
+Logger       2026-11-13 10:15:36,384 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=20, body=None
+Logger       2026-11-13 10:15:36,468 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-199-20261113-071206.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-199-20261113-071206.xml sha256=db3c9d1b2781fe8c6af7269985fa3d0b135cb813e488cb18f2b75355787d8d5e
+Logger       2026-11-13 10:15:36,551 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=16', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:36,551 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=16', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:36,551 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=17', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:36,551 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=17', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:36,568 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=18', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:36,568 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=18', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:36,571 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=19', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:36,571 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=19', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:36,642 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261113-070720.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:36,951 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-005-20261113-070708.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:37,161 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261113-070705.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:37,877 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-049-20261113-070645.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:38,902 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261113-070258.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:38,910 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=20', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:38,911 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=20', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:38,974 DEBUG    [MainThread] logger.py:debug File size is 707319 bytes.
+Logger       2026-11-13 10:15:39,021 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261113-070720.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-006-20261113-070720.xml sha256=18023648d02145f59352573450a89a0b64b1617d5891f40939f94bb3e9f85507
+Logger       2026-11-13 10:15:39,668 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261113-070258.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261113-070258.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:39,674 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261113-070258.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:15:39,674 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261113-070258.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:39,677 DEBUG    [MainThread] logger.py:debug File size is 675634 bytes.
+Logger       2026-11-13 10:15:39,677 DEBUG    [MainThread] logger.py:debug File size is 670607 bytes.
+Logger       2026-11-13 10:15:39,679 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=21, body=None
+Logger       2026-11-13 10:15:39,745 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=22, body=None
+Logger       2026-11-13 10:15:39,745 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=23, body=None
+Logger       2026-11-13 10:15:39,765 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=24, body=None
+Logger       2026-11-13 10:15:40,625 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-005-20261113-070708.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-005-20261113-070708.xml sha256=e91e3a357f6f19e6df6f7fb95c452e1cb229f3a8fef5de15ff45fefec806fea8
+Logger       2026-11-13 10:15:40,625 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=25, body=None
+Logger       2026-11-13 10:15:40,685 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261113-070705.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-059-20261113-070705.xml sha256=2aad6083897ddacb2a20c7cecfb855b18b1e814bcc18fcfdbd74ffd1fb956f7d
+Logger       2026-11-13 10:15:40,748 DEBUG    [MainThread] logger.py:debug File size is 721261 bytes.
+Logger       2026-11-13 10:15:40,815 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261112-071532.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:42,296 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261112-071328.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:42,546 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261112-071532.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261112-071532.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:42,553 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261112-071532.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:15:42,553 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261112-071532.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:42,563 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=21', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:42,563 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=21', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:42,565 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=24', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:42,565 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=24', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:42,579 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=22', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:42,579 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=22', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:42,592 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=23', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:42,592 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=23', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:42,609 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=25', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:42,609 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=25', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:42,679 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261112-071315.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:44,018 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261112-071133.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:44,018 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-049-20261113-070645.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-049-20261113-070645.xml sha256=b5165eb45faf36828091586baca3f5a58757e5f6edae63db4061b789c2f2f461
+Logger       2026-11-13 10:15:44,057 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261112-071328.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261112-071328.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:44,061 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261112-071328.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:15:44,061 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261112-071328.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:45,345 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-103-20261112-071419.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:45,865 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261112-071133.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261112-071133.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:45,876 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261112-071133.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:15:45,876 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261112-071133.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:45,878 DEBUG    [MainThread] logger.py:debug File size is 672504 bytes.
+Logger       2026-11-13 10:15:45,942 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-049-20261112-071258.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:47,311 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=26, body=None
+Logger       2026-11-13 10:15:47,342 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=27, body=None
+Logger       2026-11-13 10:15:47,342 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261112-071315.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-059-20261112-071315.xml sha256=e94389bfcd61393297044f48a3cd0bf6fc91e9ce4e66eaec28e76051e6bee227
+Logger       2026-11-13 10:15:47,342 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=28, body=None
+Logger       2026-11-13 10:15:47,394 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=29, body=None
+Logger       2026-11-13 10:15:51,255 DEBUG    [MainThread] logger.py:debug File size is 545811 bytes.
+Logger       2026-11-13 10:15:51,255 DEBUG    [MainThread] logger.py:debug File size is 719813 bytes.
+Logger       2026-11-13 10:15:51,256 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=30, body=None
+Logger       2026-11-13 10:15:51,259 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=27', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:51,259 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=27', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:51,272 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=28', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:51,272 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=28', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:51,278 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=26', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:51,280 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=26', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:51,284 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=29', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:51,284 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=29', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:51,341 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261112-070842.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:51,472 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261112-071120.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:53,734 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-199-20261112-070711.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:53,734 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261112-070842.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261112-070842.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:53,736 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261112-070842.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:15:53,736 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261112-070842.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:15:53,736 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=30', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:15:53,736 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=30', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:15:53,736 DEBUG    [MainThread] logger.py:debug File size is 606985 bytes.
+Logger       2026-11-13 10:15:53,736 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-103-20261112-071419.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-103-20261112-071419.xml sha256=a50b33b64825f87cba29a35e252841790e4fb8c637f7faf2d3a1cf34c950582a
+Logger       2026-11-13 10:15:53,799 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-049-20261112-071258.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-049-20261112-071258.xml sha256=deb8f75f97184ce9ec6a8b4c7a5a1de8edd1c3ada9cecfe93d0ed82fbe9bc95e
+Logger       2026-11-13 10:15:54,485 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261112-071120.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-311-20261112-071120.xml sha256=9c1c3d4a6628f7022b5b3e9c35196fb554e0f69ba61ab856bbd677bb2e53d0da
+Logger       2026-11-13 10:15:54,530 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=31, body=None
+Logger       2026-11-13 10:15:54,585 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=32, body=None
+Logger       2026-11-13 10:15:54,587 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=33, body=None
+Logger       2026-11-13 10:15:54,589 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=34, body=None
+Logger       2026-11-13 10:15:55,673 DEBUG    [MainThread] logger.py:debug File size is 680618 bytes.
+Logger       2026-11-13 10:15:55,673 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=35, body=None
+Logger       2026-11-13 10:15:55,768 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-005-20261112-070308.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:15:57,102 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261112-070210.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:01,018 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=34', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:01,018 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=34', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:01,031 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=31', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:01,031 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=31', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:01,031 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=32', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:01,031 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=32', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:01,031 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=33', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:01,031 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=33', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:01,047 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=35', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:01,047 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=35', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:01,111 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261112-070613.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:01,363 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261112-070210.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261112-070210.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:01,377 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261112-070210.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:16:01,377 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261112-070210.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:01,377 DEBUG    [MainThread] logger.py:debug File size is 676166 bytes.
+Logger       2026-11-13 10:16:01,440 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261112-070558.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:01,440 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-199-20261112-070711.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-199-20261112-070711.xml sha256=47dddbd153a099df4ceeebb65e9fa2eb804072438ba10aa8fffcc28d0ce8605a
+Logger       2026-11-13 10:16:01,531 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261112-070613.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261112-070613.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:01,546 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261112-070613.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:16:01,546 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261112-070613.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:01,866 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-005-20261112-070308.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-005-20261112-070308.xml sha256=891201472ff68767912c3c08ff62c028badc40609520f0696fa822c8d1c46f9d
+Logger       2026-11-13 10:16:01,922 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=36, body=None
+Logger       2026-11-13 10:16:01,979 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=37, body=None
+Logger       2026-11-13 10:16:01,979 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=38, body=None
+Logger       2026-11-13 10:16:01,979 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=39, body=None
+Logger       2026-11-13 10:16:03,384 DEBUG    [MainThread] logger.py:debug File size is 679559 bytes.
+Logger       2026-11-13 10:16:03,384 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=40, body=None
+Logger       2026-11-13 10:16:03,392 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=36', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:03,394 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=36', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:03,472 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-005-20261111-071216.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:07,441 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261111-071521.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:09,457 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=37', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:09,457 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=37', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:09,457 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=38', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:09,457 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=38', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:09,466 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=39', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:09,466 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=39', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:09,469 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=40', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:09,469 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=40', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:09,473 DEBUG    [MainThread] logger.py:debug File size is 675637 bytes.
+Logger       2026-11-13 10:16:09,473 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261111-071521.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261111-071521.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:09,477 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261111-071521.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:16:09,477 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261111-071521.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:09,477 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-168-20261112-070558.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-168-20261112-070558.xml sha256=a939853d1949503f6e73b8d66445c0ffca9b5601963784193c7e34477c79ae84
+Logger       2026-11-13 10:16:09,550 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=41, body=None
+Logger       2026-11-13 10:16:09,672 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-005-20261111-071216.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-005-20261111-071216.xml sha256=00bf6efb87677c88e762ffc5b56a2e399e2b8c692c0b655b9a58b3ddd0015770
+Logger       2026-11-13 10:16:09,672 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=42, body=None
+Logger       2026-11-13 10:16:09,672 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=43, body=None
+Logger       2026-11-13 10:16:09,723 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=44, body=None
+Logger       2026-11-13 10:16:09,789 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=45, body=None
+Logger       2026-11-13 10:16:09,856 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261111-071015.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:10,053 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261111-071009.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:13,582 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261111-070737.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:14,898 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261111-071009.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261111-071009.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:14,901 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261111-071009.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:16:14,901 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-311-20261111-071009.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:14,901 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=41', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:14,901 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=41', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:14,914 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=42', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:14,914 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=42', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:14,920 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=43', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:14,920 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=43', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:14,929 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=44', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:14,929 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=44', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:14,935 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=45', 'method': 'GET'}: Found 20 files
+Logger       2026-11-13 10:16:14,935 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=45', 'method': 'GET'}: Found 20 files initially
+Logger       2026-11-13 10:16:14,935 DEBUG    [MainThread] logger.py:debug File size is 587827 bytes.
+Logger       2026-11-13 10:16:15,003 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261111-071027.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:15,860 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261111-070737.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261111-070737.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:15,867 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261111-070737.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:16:15,867 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-243-20261111-070737.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:15,950 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-049-20261111-071151.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:15,959 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261111-071027.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261111-071027.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:15,967 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261111-071027.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:16:15,967 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-319-20261111-071027.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:17,401 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-313-20261111-071015.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-313-20261111-071015.xml sha256=d8f813e22041a535f78424dab202b579a166c18ed04b5a1fc48edf73592a87e7
+Logger       2026-11-13 10:16:17,435 DEBUG    [CancellableRequest] logger.py:debug On a new Session requesting url: method=GET, url=http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=46, body=None
+Logger       2026-11-13 10:16:17,749 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261111-070523.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:20,102 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-103-20261111-070347.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:20,879 DEBUG    [MainThread] logger.py:debug File size is 719022 bytes.
+Logger       2026-11-13 10:16:20,896 INFO     [MainThread] logger.py:info Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=46', 'method': 'GET'}: Found 18 files
+Logger       2026-11-13 10:16:20,896 INFO     [MainThread] logger.py:info After applying filters: Page {'url': 'http://prices.super-pharm.co.il/?Category-equals=PriceFull&page=46', 'method': 'GET'}: Found 18 files initially
+Logger       2026-11-13 10:16:20,899 DEBUG    [MainThread] logger.py:debug File size is 582190 bytes.
+Logger       2026-11-13 10:16:20,975 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-199-20261111-070614.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:22,334 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261111-070533.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:22,348 DEBUG    [MainThread] logger.py:debug File size is 544519 bytes.
+Logger       2026-11-13 10:16:22,348 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-049-20261111-071151.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-049-20261111-071151.xml sha256=a592d0338421b57d6f98de4c900b7ecc890667552b0d3ec0f8b67ab934251452
+Logger       2026-11-13 10:16:22,428 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-169-20261111-070523.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-169-20261111-070523.xml sha256=92a3469a47f3a9c5669e39c7be5844d882877ee815d405f17805a4798027b0bc
+Logger       2026-11-13 10:16:24,376 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261111-070319.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:24,579 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-103-20261111-070347.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-103-20261111-070347.xml sha256=22ae15d2202d9a400aeb17f6db2eec76bac5fa53af82e146671adbf9c6276b6a
+Logger       2026-11-13 10:16:24,626 DEBUG    [MainThread] logger.py:debug File size is 680960 bytes.
+Logger       2026-11-13 10:16:24,627 DEBUG    [MainThread] logger.py:debug File size is 675328 bytes.
+Logger       2026-11-13 10:16:24,693 DEBUG    [MainThread] logger.py:debug Processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261111-070312.gz?bucketName=sp_transparency_output_prod_v2 (in-memory)
+Logger       2026-11-13 10:16:25,985 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-199-20261111-070614.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-199-20261111-070614.xml sha256=2dedb1e56cee066db2945a6fa8787c3d300b58b9c7e5b87bcae004a3682b5c60
+Logger       2026-11-13 10:16:26,048 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-173-20261111-070533.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-173-20261111-070533.xml sha256=48fd49b8bf113901b099ba075c4d730bd6468a5d3eb8a765e7da99dc19f5fec8
+Logger       2026-11-13 10:16:26,125 WARNING  [MainThread] logger.py:warning Error downloading http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261111-070312.gz?bucketName=sp_transparency_output_prod_v2: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261111-070312.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:26,129 ERROR    [MainThread] logger.py:error Error processing http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261111-070312.gz?bucketName=sp_transparency_output_prod_v2, downloaded=False
+Logger       2026-11-13 10:16:26,129 ERROR    [MainThread] logger.py:error_execption got an execption:
+Traceback (most recent call last):
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 939, in save_and_extract
+    file_content = await self._download_file_content(file_link, timeout=30)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 806, in _download_file_content
+    return await self.retrieve_file_to_memory(file_link, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 176, in outer_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\engines\engine.py", line 795, in retrieve_file_to_memory
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\il_supermarket_scarper\utils\network\connection.py", line 635, in url_retrieve_to_memory
+    _request.raise_for_status()
+  File "C:\Users\efush\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 491 Client Error:  for url: http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-059-20261111-070312.gz?bucketName=sp_transparency_output_prod_v2
+Logger       2026-11-13 10:16:27,501 DEBUG    [MainThread] logger.py:debug File size is 706693 bytes.
+Logger       2026-11-13 10:16:27,524 DEBUG    [MainThread] logger.py:debug Saved http://prices.super-pharm.co.il//Download/PriceFull7290172900007-000-006-20261111-070319.gz?bucketName=sp_transparency_output_prod_v2 to C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-006-20261111-070319.xml sha256=34748a729d525598e36e2dbee016ea0c6c549a07fb5d2242f43a026ee3274bf8
+Logger       2026-11-13 10:16:27,641 INFO     [MainThread] logger.py:info Found the following files in C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-005-20261111-071216.xml: size 7421929
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-005-20261112-070308.xml: size 14851444
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-005-20261113-070708.xml: size 22276314
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-006-20261111-070319.xml: size 30082866
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-006-20261113-070720.xml: size 37896725
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-049-20261111-071151.xml: size 45820772
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-049-20261112-071258.xml: size 53750882
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-049-20261113-070645.xml: size 61696187
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-059-20261112-071315.xml: size 69067084
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-059-20261113-070705.xml: size 76421571
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-103-20261111-070347.xml: size 82448152
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-103-20261112-071419.xml: size 88490278
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-103-20261113-070834.xml: size 94574326
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-168-20261112-070558.xml: size 102056654
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-169-20261111-070523.xml: size 108500036
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-169-20261113-071115.xml: size 114964149
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-173-20261111-070533.xml: size 122455353
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-199-20261111-070614.xml: size 129975163
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-199-20261112-070711.xml: size 137485399
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-199-20261113-071206.xml: size 145002644
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-243-20261113-071333.xml: size 152244350
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-311-20261112-071120.xml: size 158997319
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-311-20261113-071536.xml: size 165756721
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-313-20261111-071015.xml: size 172276524
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info - file C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm\PriceFull7290172900007-000-319-20261113-071546.xml: size 180152416
+Logger       2026-11-13 10:16:27,642 INFO     [MainThread] logger.py:info Folder C:\Users\efush\AppData\Local\Temp\sp-local\dumps\SuperPharm: Num of Files= 25,Size= 180152416 MB
+Logger       2026-11-13 10:16:27,701 INFO     [MainThread] logger.py:info [DumpFolderNames.SUPER_PHARM] Run #1 completed. Files found: 39, Total files: 39
+Logger       2026-11-13 10:16:27,701 INFO     [MainThread] logger.py:info [DumpFolderNames.SUPER_PHARM] Exiting loop: single pass completed
+Logger       2026-11-13 10:16:27,701 INFO     [MainThread] logger.py:info done scraping DumpFolderNames.SUPER_PHARM

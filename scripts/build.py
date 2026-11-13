@@ -8,9 +8,13 @@ JSON files the app reads:
   data/meta.json        when it ran, the chosen cities, the stores that have prices
   data/cities.json      every city where some chain has a store (for the region picker)
   data/catalog.json     [barcode, name, manufacturer, size] for every product found
-  data/prices/NN.json   {barcode: {storeIndex: price}}, NN = last two digits of the barcode
+  data/prices/NN.json   {barcode: {storeIndex: price | [price, promotion, ...]}},
+                        NN = last two digits of the barcode,
+                        promotion = [id, n, total, maxUnits, endMMDD]: n units for a total of "total"
 
-Shelf prices only: promotions and club discounts are not applied.
+Only promotions open to every customer with no extra conditions are included (see simple_promos).
+Chains that block connections from outside Israel are downloaded by a computer in Israel
+(MODE=local, scripts/run-local.ps1) and merged in here.
 """
 import datetime
 import gzip
@@ -218,14 +222,69 @@ def assign_missing_cities(stores, wanted_keys):
                 break
 
 
+# ---------- promotions ----------
+def to_float(value):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def simple_promos(text, today):
+    """Promotions that can be computed with certainty from a basket: open to every customer,
+    no coupon, no minimum purchase, one group of products, either a promo price for one unit or
+    "N units for a total of P". Checked against the chains' own descriptions ("2 ב-10") on real
+    files: the fields agree in about 98% of cases. Yields (id, n, total, max_units, end, codes).
+    Club, credit-card, percentage and mixed-condition promotions are left out on purpose."""
+    for block in blocks(text, "Promotion") or blocks(text, "Sale"):
+        head = re.split(r"(?i)<(?:\w+:)?groups\b", block, maxsplit=1)[0]
+        f = fields(head)
+        club = f.get("clubid", "").strip()
+        if club and not re.match(r"0(\D|$)", club):
+            continue
+        if f.get("additionaliscoupon", "0") not in ("0", ""):
+            continue
+        start = (f.get("promotionstartdatetime") or f.get("promotionstartdate") or "")[:10]
+        end = (f.get("promotionenddatetime") or f.get("promotionenddate") or "")[:10]
+        if (start and start > today) or (end and end < today):
+            continue
+        groups = blocks(block, "Group")
+        if len(groups) > 1:
+            continue
+        body = groups[0] if groups else block
+        if to_float(first(body, "MinPurchaseAmount", "MinPurchaseAmnt")) > 0:
+            continue
+        deals = defaultdict(list)
+        for item in blocks(body, "PromotionItem") or blocks(body, "Item"):
+            fi = {**f, **fields(item)}
+            code = digits(fi.get("itemcode", ""))
+            n, total = to_float(fi.get("minqty")), to_float(fi.get("discountedprice"))
+            if len(code) < 8 or fi.get("bisweighted", "0") == "1" or fi.get("rewardtype") not in ("1", "3", "10"):
+                continue
+            if total <= 0 or n < 1 or n > 12 or n != int(n):
+                continue
+            deals[(int(n), round(total, 2), int(to_float(fi.get("maxqty"))))].append(code)
+        for (n, total, max_units), codes in deals.items():
+            yield f.get("promotionid", "").lstrip("0") or "0", n, total, max_units, end[5:].replace("-", ""), codes
+
+
+def best_promos(found, price):
+    """Keep promotions that really beat the shelf price (and are not obvious data errors); best three."""
+    good = [p for p in found if 0.15 * price * p[1] <= p[2] < price * p[1] - 0.005]
+    good.sort(key=lambda p: p[2] / p[1])
+    return good[:3]
+
+
 # ---------- step 2: prices for the chosen stores ----------
 def load_prices(selected):
     by_scraper = defaultdict(list)
     for s in selected:
         by_scraper[s["scraper"]].append(s)
     prices = defaultdict(dict)  # barcode -> {store key: price}
+    promos = defaultdict(dict)  # barcode -> {store key: [[id, n, total, max units, end MMDD], ...]}
     info = {}                   # barcode -> Counter of (name, manufacturer, size)
     priced = set()
+    today = (now_utc() + datetime.timedelta(hours=2)).strftime("%Y-%m-%d")  # Israel time, near enough
     for name, group in by_scraper.items():
         ids = "|".join(sorted({str(s["store_id"]) for s in group}))
         # PriceFull<chain>-<store>-<time> or PriceFull<chain>-<subchain>-<store>-<time>
@@ -276,9 +335,30 @@ def load_prices(selected):
                     info.setdefault(code, Counter())[(nm, mf, size)] += 1
                 items += 1
             priced.add(key)
-        log(f"   {name}: {len(latest)}/{len(group)} stores, {items} prices, {time.time() - t0:.0f}s")
+        shutil.rmtree(DUMPS, ignore_errors=True)  # keep the disk small
+
+        # Promotions for the same stores.
+        deals = 0
+        if latest:
+            scrape([name], ["PROMO_FULL_FILE"], regex=regex.replace("pricefull", "promofull"))
+            newest = {}
+            for p in files_in(DUMPS, "promofull"):
+                m = re.match(r"(?i)promofull(\d+)-(?:\d+-)?(\d+)-\d{8,}", p.name)
+                key = f"{m.group(1)}-{int(m.group(2))}" if m else None
+                if key in latest and (key not in newest or stamp(p.name) > stamp(newest[key].name)):
+                    newest[key] = p
+            for key, path in newest.items():
+                try:
+                    for pid, n, total, max_units, end, codes in simple_promos(read_text(path), today):
+                        for code in codes:
+                            if key in prices.get(code, {}):
+                                promos[code].setdefault(key, []).append([pid, n, total, max_units, end])
+                                deals += 1
+                except Exception as exc:  # pylint: disable=broad-except
+                    log("   promotions unreadable", path.name, repr(exc)[:120])
+        log(f"   {name}: {len(latest)}/{len(group)} stores, {items} prices, {deals} promotion prices, {time.time() - t0:.0f}s")
         shutil.rmtree(DUMPS, ignore_errors=True)  # keep the disk small between chains
-    return prices, info, priced
+    return prices, promos, info, priced
 
 
 def write(path, obj):
@@ -286,11 +366,71 @@ def write(path, obj):
     path.write_text(json.dumps(obj, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
+# Chains whose sites refuse connections from outside Israel. GitHub's servers cannot reach them,
+# so a computer in Israel downloads them (MODE=local) and publishes a "partial" file that the
+# GitHub build merges in.
+LOCAL_SCRAPERS = [s for s in os.getenv(
+    "LOCAL_SCRAPERS",
+    "YAYNO_BITAN_AND_CARREFOUR,HAZI_HINAM,VICTORY_NEW_SOURCE,MAHSANI_ASHUK_NEW_SOURCE,NETIV_HASED,SUPER_PHARM,HET_COHEN_NEW_SOURCE",
+).split(",") if s]
+MODE = os.getenv("MODE", "ci")
+PARTIAL_URL = os.getenv("PARTIAL_URL", f"https://raw.githubusercontent.com/{os.getenv('GITHUB_REPOSITORY', '')}/local/partial.json.gz")
+PARTIAL_MAX_AGE_DAYS = 7
+STORE_KEYS = ("id", "chain", "name", "address", "city")
+
+
+def now_utc():
+    return datetime.datetime.now(datetime.timezone.utc)
+
+
+def write_partial(wanted, stores, selected, prices, promos, info, priced):
+    """MODE=local: everything this computer found, for the GitHub build to merge."""
+    final = [s for s in selected if s["id"] in priced]
+    body = {
+        "updated": now_utc().isoformat(timespec="seconds"),
+        "scrapers": sorted({s["scraper"] for s in stores.values()}),
+        "cities": list(wanted.values()),
+        "all_cities": dict(Counter(s["city"] for s in stores.values() if s["city"])),
+        "stores": [{k: s[k] for k in STORE_KEYS} for s in final],
+        "prices": dict(prices),
+        "promos": dict(promos),
+        "info": {code: list(c.most_common(1)[0][0]) for code, c in info.items()},
+    }
+    OUT.mkdir(parents=True, exist_ok=True)
+    with gzip.open(OUT / "partial.json.gz", "wt", encoding="utf-8") as fh:
+        json.dump(body, fh, ensure_ascii=False, separators=(",", ":"))
+    log(f"done (local): {len(final)} stores with prices from {len(body['scrapers'])} chains, {len(prices)} products")
+    if not final:
+        sys.exit(1)
+
+
+def read_partial():
+    """The latest file published by the computer in Israel, if it is recent enough."""
+    try:
+        with urllib.request.urlopen(PARTIAL_URL, timeout=60) as res:
+            body = json.loads(gzip.decompress(res.read()).decode("utf-8"))
+        age = now_utc() - datetime.datetime.fromisoformat(body["updated"])
+        if age.days > PARTIAL_MAX_AGE_DAYS:
+            log(f"local partial is {age.days} days old, ignoring it")
+            return None
+        log(f"local partial: {len(body['stores'])} stores from {len(body['scrapers'])} chains, {age.days} days old")
+        return body
+    except Exception as exc:  # pylint: disable=broad-except
+        log("no local partial:", repr(exc)[:120])
+        return None
+
+
 def main():
-    scrapers = ONLY_SCRAPERS or ScraperFactory.all_scrapers_name()
     cities = chosen_cities()
     wanted = {city_key(c): CANON.get(city_key(c), c) for c in cities}
     log("cities:", ", ".join(wanted.values()))
+    partial = read_partial() if MODE == "ci" and not ONLY_SCRAPERS else None
+    available = ScraperFactory.all_scrapers_name()
+    if MODE == "local":
+        scrapers = [s for s in LOCAL_SCRAPERS if s in available]
+    else:
+        covered = set(partial["scrapers"]) if partial else set()
+        scrapers = ONLY_SCRAPERS or [s for s in available if s not in covered]
     log("step 1: store lists for", len(scrapers), "chains")
     shutil.rmtree(DUMPS, ignore_errors=True)
     stores = load_stores(scrapers)
@@ -303,7 +443,26 @@ def main():
     all_cities = Counter(s["city"] for s in stores.values() if s["city"])
     selected = [s for s in stores.values() if city_key(s["city"]) in wanted]
     log(f"step 2: prices for {len(selected)} stores in the chosen cities (of {len(stores)} stores nationwide)")
-    prices, info, priced = load_prices(selected)
+    prices, promos, info, priced = load_prices(selected)
+
+    if MODE == "local":
+        write_partial(wanted, stores, selected, prices, promos, info, priced)
+        return
+
+    if partial:
+        all_cities.update(partial.get("all_cities", {}))
+        for s in partial["stores"]:
+            if city_key(s["city"]) in wanted and s["id"] not in priced:
+                selected.append(s)
+                priced.add(s["id"])
+        for code, row in partial["prices"].items():
+            for store_id, price in row.items():
+                prices[code].setdefault(store_id, price)
+        for code, triple in partial["info"].items():
+            info.setdefault(code, Counter())[tuple(triple)] += 1
+        for code, row in partial.get("promos", {}).items():
+            for store_id, found in row.items():
+                promos[code].setdefault(store_id, found)
 
     final = sorted((s for s in selected if s["id"] in priced), key=lambda s: (s["city"], s["chain"], s["name"]))
     index = {s["id"]: i for i, s in enumerate(final)}
@@ -312,7 +471,12 @@ def main():
     shards = defaultdict(dict)
     catalog = []
     for code, per_store in prices.items():
-        row = {str(index[k]): v for k, v in per_store.items() if k in index}
+        # A store's value is its shelf price, or [shelf price, promotion, ...] when promotions apply.
+        row = {}
+        for k, v in per_store.items():
+            if k in index:
+                deals = best_promos(promos.get(code, {}).get(k, []), v)
+                row[str(index[k])] = [v] + deals if deals else v
         if not row:
             continue
         shards[code[-2:]][code] = row
@@ -325,10 +489,11 @@ def main():
     write(OUT / "catalog.json", [r[:4] for r in catalog])
     write(OUT / "cities.json", [[c, n] for c, n in all_cities.most_common()])
     write(OUT / "meta.json", {
-        "updated": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+        "updated": now_utc().isoformat(timespec="seconds"),
         "cities": list(wanted.values()),
-        "stores": [{k: s[k] for k in ("id", "chain", "name", "address", "city")} for s in final],
+        "stores": [{k: s[k] for k in STORE_KEYS} for s in final],
         "missing": sorted({s["chain"] for s in selected if s["id"] not in priced}),
+        "local_updated": partial["updated"] if partial else None,
     })
     log(f"done: {len(final)} stores with prices, {len(catalog)} products, {len(shards)} price files")
     if not final:
