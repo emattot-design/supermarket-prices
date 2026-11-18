@@ -224,6 +224,83 @@ def assign_missing_cities(stores, wanted_keys):
                 break
 
 
+# ---------- loose fruit and vegetables ----------
+# Each kind: display name, words that must all appear, words that may also appear (colours, varieties),
+# and words that rule a product out. Any other word rules it out too, so "עגבניה מגי אורגנית" or
+# "עגבניות שרי" is not plain tomatoes. Words are compared after a light normalisation (see _pw).
+_FILLER = {"תפזורת", "בתפזורת", "במשקל", "משקל", "שקיל", "ארוז", "ארוזה", "ארוזים", "טרי", "טריה", "טריים",
+           "ק", "מובחר", "מובחרת", "ישראלי", "ישראלית", "כשר", "מהדרין", "בדצ", "לקג", "קג", "מחיר", "לק", "יבולי",
+           "הכפר", "מארז", "בשקית", "שק", "שקית", "גדול", "גדולה", "קטן", "קטנה", "מקומי", "חסלט"}
+_PRODUCE_LIST = [
+    # name, required, optional, forbidden
+    ("עגבניה", ["עגבני"], [], []),
+    ("מלפפון", ["מלפפונ"], [], []),
+    ("גזר", ["גזר"], [], []),
+    ("בצל יבש", ["בצל"], ["יבש", "לבנ"], ["ירוק", "אדומ", "סגול"]),
+    ("בצל אדום", ["בצל", "אדומ"], ["יבש", "סגול"], []),
+    ("תפוח אדמה", ["תפוח", "אדמ"], ["לבנ", "אדומ", "לאפי"], []),
+    ("בטטה", ["בטט"], [], []),
+    ("קישוא", ["קישוא"], ["בהיר", "ירוק"], []),
+    ("חציל", ["חציל"], [], []),
+    ("פלפל אדום", ["פלפל", "אדומ"], ["גמבה"], ["חריפ"]),
+    ("פלפל צהוב", ["פלפל", "צהוב"], [], ["חריפ"]),
+    ("פלפל ירוק", ["פלפל", "ירוק"], ["בהיר"], ["חריפ"]),
+    ("כרוב לבן", ["כרוב"], ["לבנ"], ["אדומ", "סגול", "ניצנ"]),
+    ("כרוב אדום", ["כרוב", "אדומ"], ["סגול"], []),
+    ("כרובית", ["כרובית"], [], []),
+    ("ברוקולי", ["ברוקולי"], [], []),
+    ("סלק", ["סלק"], ["אדומ"], ["עלי"]),
+    ("לפת", ["לפת"], [], []),
+    ("קולורבי", ["קולורבי"], [], []),
+    ("לימון", ["לימונ"], [], []),
+    ("בננה", ["בננ"], [], []),
+    ("תפוח עץ", ["תפוח"], ["עצ", "אדומ", "ירוק", "צהוב", "גאל", "סמית", "גרני", "פינק", "ליידי", "חרמון", "יונתנ", "ענבר", "זהוב", "סטרקינג"], ["אדמ"]),
+    ("אגס", ["אגס"], ["ירוק", "צהוב", "ספדונה", "קוסיה"], []),
+    ("תפוז", ["תפוז"], ["שמוטי", "ולנסיה", "טבורי"], []),
+    ("קלמנטינה", ["קלמנטינ"], ["אור", "מיכל"], []),
+    ("אשכולית", ["אשכולית"], ["אדומ", "לבנ"], []),
+    ("אבוקדו", ["אבוקדו"], ["האס", "אטינגר", "רידי", "פוארטה", "פינקרטון"], []),
+    ("ענבים", ["ענבימ"], ["ירוק", "אדומ", "שחור", "לבנ", "ללא", "חרצנ"], []),
+    ("אבטיח", ["אבטיח"], [], []),
+    ("מלון", ["מלונ"], ["כתומ", "ירוק", "גליה", "עננס"], []),
+    ("מנגו", ["מנגו"], [], []),
+    ("אפרסק", ["אפרסק"], ["לבנ", "צהוב"], []),
+    ("נקטרינה", ["נקטרינ"], [], []),
+    ("שזיף", ["שזיפ"], ["אדומ", "צהוב", "שחור"], []),
+    ("קיווי", ["קיווי"], ["ירוק"], []),
+    ("אפרסמון", ["אפרסמונ"], [], []),
+    ("רימון", ["רימונ"], [], []),
+]
+# A shared made-up barcode per kind. Numbers starting with 2 are reserved for in-store use, so they never
+# clash with a real product.
+PRODUCE = {i: (f"2999000000{i:03d}", name, set(req), set(opt), set(bad)) for i, (name, req, opt, bad) in enumerate(_PRODUCE_LIST)}
+
+
+def _pw(word):
+    """Light normalisation for produce names: no quotes or final letters, plurals and ה/ת endings trimmed."""
+    w = re.sub(r"[\"'׳״`.,()\[\]\-_/\\*+!:;]", "", word)
+    w = w.translate(str.maketrans("ךםןףץ", "כמנפצ"))
+    if len(w) > 4 and w.endswith(("ימ", "ות")):
+        w = w[:-2]
+    elif len(w) > 3 and w.endswith(("ה", "ת")):
+        w = w[:-1]
+    return w
+
+
+def produce_kind(name):
+    words = [_pw(w) for w in re.split(r"[\s,/+]+", name or "")]
+    words = [w for w in words if w and not w.isdigit() and w not in {_pw(f) for f in _FILLER}]
+    if not words or len(words) > 4:
+        return None
+    present = set(words)
+    for i, (_code, _name, req, opt, bad) in PRODUCE.items():
+        if not req <= present or present & bad:
+            continue
+        if present <= req | opt:
+            return i
+    return None
+
+
 # ---------- promotions ----------
 def to_float(value):
     try:
@@ -316,7 +393,20 @@ def load_prices(selected):
             for block in blocks(text, "Item") or blocks(text, "Product"):
                 f = fields(block)
                 code = digits(f.get("itemcode", ""))
-                # Short codes are a chain's own numbering (mostly fruit, vegetables, deli) and cannot be compared.
+                # Loose fruit and vegetables: every chain numbers them differently, so they are matched by name
+                # and filed under one shared code per kind (cheapest matching per-kg price in each store).
+                if f.get("bisweighted", "0") == "1":
+                    kind = produce_kind(f.get("itemname", "") or f.get("itemnm", ""))
+                    if kind is not None:
+                        try:
+                            kg_price = float(f.get("itemprice", "") or 0)
+                        except ValueError:
+                            kg_price = 0
+                        pcode = PRODUCE[kind][0]
+                        if 0.5 <= kg_price <= 80 and (key not in prices[pcode] or kg_price < prices[pcode][key]):
+                            prices[pcode][key] = round(kg_price, 2)
+                            info.setdefault(pcode, Counter())[(PRODUCE[kind][1] + " (במשקל)", "פירות וירקות", '1 ק"ג')] += 1
+                # Other short codes are a chain's own numbering (deli, bakery) and cannot be compared.
                 if len(code) < 8:
                     continue
                 try:
