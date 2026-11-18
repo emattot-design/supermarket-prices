@@ -24,6 +24,9 @@ if ($LASTEXITCODE -ne 0) { Add-Content $log "build failed with exit code $LASTEX
 
 Set-Location $env:OUT_DIR
 if (Test-Path .git) { Remove-Item -Recurse -Force .git }
+# GitHub reads a push's workflow from the pushed branch itself, so the rebuild trigger has to travel with the data.
+New-Item -ItemType Directory -Force '.github\workflows' | Out-Null
+Copy-Item "$root\.github\workflows\prices.yml" '.github\workflows\prices.yml' -Force
 & $git init -q -b local
 & $git config user.name 'prices-bot'
 & $git config user.email 'prices-bot@users.noreply.github.com'
