@@ -396,7 +396,10 @@ def load_prices(selected):
                 code = digits(f.get("itemcode", ""))
                 # Loose fruit and vegetables: every chain numbers them differently, so they are matched by name
                 # and filed under one shared code per kind (cheapest matching per-kg price in each store).
-                if f.get("bisweighted", "0") == "1":
+                # Not every chain sets bIsWeighted: a kilo unit or the chain's own short code also marks loose produce.
+                unit = (f.get("unitofmeasure", "") + " " + f.get("unitqty", "")).replace('"', "").replace("״", "")
+                loose = f.get("bisweighted", "0") == "1" or len(code) < 8 or "קג" in unit or "קילו" in unit
+                if loose:
                     kind = produce_kind(f.get("itemname", "") or f.get("itemnm", ""))
                     if kind is not None:
                         try:
