@@ -25,6 +25,7 @@ import re
 import shutil
 import sys
 import time
+import urllib.error
 import urllib.request
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -512,6 +513,53 @@ def read_partial():
         return None
 
 
+PREV_URL = os.getenv("PREV_URL", f"https://raw.githubusercontent.com/{os.getenv('GITHUB_REPOSITORY', '')}/data/")
+CARRY_DAYS = 2
+
+
+def read_previous(wanted, have):
+    """Stores the last published build had but this build got no prices for.
+
+    Some chains (Osher Ad, for one) publish their files only in the morning, so a build at another hour
+    finds nothing for them. Rather than dropping those stores, their last prices are kept for up to
+    CARRY_DAYS, marked with the time they are from ("as_of").
+    Returns (stores, {barcode: {store id: published value}}, {barcode: (name, manufacturer, size)}).
+    """
+    def get(path):
+        with urllib.request.urlopen(PREV_URL + path, timeout=60) as res:
+            return json.loads(res.read().decode("utf-8"))
+    try:
+        meta = get("meta.json")
+        now = now_utc()
+        keep = {}
+        for i, s in enumerate(meta["stores"]):
+            as_of = s.get("as_of") or meta["updated"]
+            age = now - datetime.datetime.fromisoformat(as_of)
+            if s["id"] not in have and city_key(s["city"]) in wanted and age <= datetime.timedelta(days=CARRY_DAYS):
+                keep[str(i)] = dict(s, as_of=as_of)
+        if not keep:
+            return [], {}, {}
+        values = defaultdict(dict)
+        for shard in range(100):
+            try:
+                body = get(f"prices/{shard:02d}.json")
+            except urllib.error.HTTPError as exc:
+                if exc.code == 404:
+                    continue  # no barcodes ended in these digits
+                raise
+            for code, row in body.items():
+                for idx, v in row.items():
+                    if idx in keep:
+                        values[code][keep[idx]["id"]] = v
+        names = {r[0]: tuple(r[1:4]) for r in get("catalog.json")}
+    except Exception as exc:  # pylint: disable=broad-except
+        log("previous data not carried over:", repr(exc)[:120])
+        return [], {}, {}
+    log(f"carried over from the previous build: {len(keep)} stores ("
+        + ", ".join(sorted({s['chain'] for s in keep.values()})) + ")")
+    return list(keep.values()), values, names
+
+
 def main():
     # The scraper package writes helper files (cookies, logs) into the current directory;
     # give it a directory that certainly exists and is writable, wherever this was started from.
@@ -545,11 +593,14 @@ def main():
         write_partial(wanted, stores, selected, prices, promos, info, priced)
         return
 
+    fresh = now_utc().isoformat(timespec="seconds")
+    for s in selected:
+        s["as_of"] = fresh
     if partial:
         all_cities.update(partial.get("all_cities", {}))
         for s in partial["stores"]:
             if city_key(s["city"]) in wanted and s["id"] not in priced:
-                selected.append(s)
+                selected.append(dict(s, as_of=partial["updated"]))
                 priced.add(s["id"])
         for code, row in partial["prices"].items():
             for store_id, price in row.items():
@@ -560,27 +611,32 @@ def main():
             for store_id, found in row.items():
                 promos[code].setdefault(store_id, found)
 
-    final = sorted((s for s in selected if s["id"] in priced), key=lambda s: (s["city"], s["chain"], s["name"]))
+    carried, carried_values, carried_names = read_previous(wanted, priced) if not ONLY_SCRAPERS else ([], {}, {})
+    final = sorted([s for s in selected if s["id"] in priced] + carried, key=lambda s: (s["city"], s["chain"], s["name"]))
     index = {s["id"]: i for i, s in enumerate(final)}
     if OUT.exists():
         shutil.rmtree(OUT)
     shards = defaultdict(dict)
     catalog = []
-    for code, per_store in prices.items():
+    for code in set(prices) | set(carried_values):
         # A store's value is its shelf price, or [shelf price, promotion, ...] when promotions apply.
-        row = {}
-        for k, v in per_store.items():
+        row, shelf = {}, []
+        for k, v in prices.get(code, {}).items():
             if k in index:
                 deals = best_promos(promos.get(code, {}).get(k, []), v)
                 row[str(index[k])] = [v] + deals if deals else v
+                shelf.append(v)
+        for k, v in carried_values.get(code, {}).items():   # already in published form
+            if k in index and str(index[k]) not in row:
+                row[str(index[k])] = v
+                shelf.append(v[0] if isinstance(v, list) else v)
         if not row:
             continue
         shards[code[-2:]][code] = row
-        name, manufacturer, size = info[code].most_common(1)[0][0] if code in info else ("", "", "")
+        name, manufacturer, size = info[code].most_common(1)[0][0] if code in info else carried_names.get(code, ("", "", ""))
         if name:
             # Lowest shelf price in the chosen area: lets the app compare unit prices before anything is picked.
-            lowest = min(v for k, v in per_store.items() if k in index)
-            catalog.append([code, name, manufacturer, size, len(row), lowest])
+            catalog.append([code, name, manufacturer, size, len(row), min(shelf)])
     catalog.sort(key=lambda r: (-r[4], r[1]))
     for shard, body in shards.items():
         write(OUT / "prices" / f"{shard}.json", body)
@@ -589,8 +645,8 @@ def main():
     write(OUT / "meta.json", {
         "updated": now_utc().isoformat(timespec="seconds"),
         "cities": list(wanted.values()),
-        "stores": [{k: s[k] for k in STORE_KEYS} for s in final],
-        "missing": sorted({s["chain"] for s in selected if s["id"] not in priced}),
+        "stores": [{**{k: s[k] for k in STORE_KEYS}, "as_of": s["as_of"]} for s in final],
+        "missing": sorted({s["chain"] for s in selected if s["id"] not in index}),
         "local_updated": partial["updated"] if partial else None,
     })
     log(f"done: {len(final)} stores with prices, {len(catalog)} products, {len(shards)} price files")
