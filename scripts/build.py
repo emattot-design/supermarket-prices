@@ -7,7 +7,7 @@ JSON files the app reads:
 
   data/meta.json        when it ran, the chosen cities, the stores that have prices
   data/cities.json      every city where some chain has a store (for the region picker)
-  data/catalog.json     [barcode, name, manufacturer, size] for every product found
+  data/catalog.json     [barcode, name, manufacturer, size, lowest shelf price in the area] for every product
   data/prices/NN.json   {barcode: {storeIndex: price | [price, promotion, ...]}},
                         NN = last two digits of the barcode,
                         promotion = [id, n, total, maxUnits, endMMDD]: n units for a total of "total"
@@ -488,11 +488,13 @@ def main():
         shards[code[-2:]][code] = row
         name, manufacturer, size = info[code].most_common(1)[0][0] if code in info else ("", "", "")
         if name:
-            catalog.append([code, name, manufacturer, size, len(row)])
+            # Lowest shelf price in the chosen area: lets the app compare unit prices before anything is picked.
+            lowest = min(v for k, v in per_store.items() if k in index)
+            catalog.append([code, name, manufacturer, size, len(row), lowest])
     catalog.sort(key=lambda r: (-r[4], r[1]))
     for shard, body in shards.items():
         write(OUT / "prices" / f"{shard}.json", body)
-    write(OUT / "catalog.json", [r[:4] for r in catalog])
+    write(OUT / "catalog.json", [r[:4] + [r[5]] for r in catalog])
     write(OUT / "cities.json", [[c, n] for c, n in all_cities.most_common()])
     write(OUT / "meta.json", {
         "updated": now_utc().isoformat(timespec="seconds"),
