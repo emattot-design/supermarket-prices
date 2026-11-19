@@ -139,21 +139,47 @@ def scrape(scrapers, file_types, regex=None, limit=None):
         log("   scrape error:", repr(exc)[:300])
 
 
+CITY_DAYS = 45      # a city no list has used for this long is no longer collected
+MAX_CITIES = 40
+
+
+def _firestore_doc(path):
+    url = f"https://firestore.googleapis.com/v1/projects/{FIREBASE_PROJECT}/databases/(default)/documents/{path}?key={FIREBASE_KEY}"
+    with urllib.request.urlopen(url, timeout=30) as res:
+        return json.load(res).get("fields", {})
+
+
 def chosen_cities():
-    """The cities chosen in the app (Firestore doc config/regions), or the defaults."""
+    """Every city some list in the app compares prices in.
+
+    Each list notes its cities in config/cities ({city: last used, ms}); the ones used in the last
+    CITY_DAYS days are collected. Falls back to the old shared setting (config/regions), then defaults.
+    """
+    names = []
     if FIREBASE_PROJECT:
-        url = f"https://firestore.googleapis.com/v1/projects/{FIREBASE_PROJECT}/databases/(default)/documents/config/regions?key={FIREBASE_KEY}"
         try:
-            with urllib.request.urlopen(url, timeout=30) as res:
-                doc = json.load(res)
-            values = doc.get("fields", {}).get("cities", {}).get("arrayValue", {}).get("values", [])
-            names = [v.get("stringValue", "").strip() for v in values]
-            names = [n for n in names if n][:15]
-            if names:
-                return names
+            seen = _firestore_doc("config/cities").get("seen", {}).get("mapValue", {}).get("fields", {})
+            cutoff = (time.time() - CITY_DAYS * 86400) * 1000
+            recent = []
+            for city, v in seen.items():
+                when = float(v.get("integerValue") or v.get("doubleValue") or 0)
+                if city.strip() and when >= cutoff:
+                    recent.append((when, city.strip()))
+            names = [c for _, c in sorted(recent, reverse=True)]
         except Exception as exc:  # pylint: disable=broad-except
-            log("could not read the app's region choice, using defaults:", repr(exc)[:200])
-    return DEFAULT_CITIES
+            log("could not read the lists' cities:", repr(exc)[:200])
+        if not names:
+            try:
+                values = _firestore_doc("config/regions").get("cities", {}).get("arrayValue", {}).get("values", [])
+                names = [v.get("stringValue", "").strip() for v in values]
+            except Exception as exc:  # pylint: disable=broad-except
+                log("could not read the app's region choice, using defaults:", repr(exc)[:200])
+    unique = {}
+    for n in names:
+        if n:
+            unique.setdefault(city_key(n), n)
+    names = list(unique.values())[:MAX_CITIES]
+    return names or DEFAULT_CITIES
 
 
 # Display names for chains whose files carry only a number or nothing as the chain name.
